@@ -1,0 +1,41 @@
+.unStyledLink {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: initial;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.preLoaderBlock {
+  position: relative;
+  display: flex;
+  min-height: 320px;
+  width: 100%;
+  margin: auto;
+}
+
+.preloaderWrap {
+  position: relative;
+  display: flex;
+  min-height: 320px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorMessage {
+  position: relative;
+  display: flex;
+  min-height: 320px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: var(--errorColor);
+  font-size: 18px;
+}

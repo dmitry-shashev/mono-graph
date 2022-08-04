@@ -1,0 +1,43 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  background-color: var(--topMenuBgColor);
+}
+
+.wrapContent {
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--mainLayoutContentWidth);
+  align-items: center;
+  flex-grow: 1;
+
+  .navList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style: none;
+    gap: 0 30px;
+    margin: 0;
+    font-size: 20px;
+    padding: 20px;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        color: var(--topMenuColor);
+
+        &.active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .userName {
+    font-size: 16px;
+    color: var(--topMenuColor);
+    opacity: 0.5;
+  }
+}
