@@ -3,7 +3,7 @@ import PagePath from '../lib/constants/page-path'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser, useActiveRequests, userSlice } from '@mono-graph/store'
 import { ProfileForm } from '@mono-graph/components'
-import { Page, UserModel } from '@mono-graph/core'
+import { LayoutKind, Page, UserModel } from '@mono-graph/core'
 
 const { updateUser } = userSlice.actions
 
@@ -33,6 +33,7 @@ ProfilePage.pageMeta = {
   title: 'User Profile',
   description: 'Some user profile',
   keywords: '',
+  layoutKind: LayoutKind.Main,
   path: PagePath.Profile,
 }
 

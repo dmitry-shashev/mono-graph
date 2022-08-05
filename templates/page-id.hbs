@@ -1,0 +1,25 @@
+import React from 'react'
+import { useRouter } from 'next/router'
+import { LayoutKind, Page, StrHelper } from '@mono-graph/core'
+import PagePath from '../../lib/constants/page-path'
+
+const {{pascalCase pageName}}IdPage: Page = () => {
+  const router = useRouter()
+  const id = StrHelper.base64Decode(router.query.id)
+  return (
+    <div>
+      <h1>New ID Page - {id}</h1>
+    </div>
+  )
+}
+
+{{pascalCase pageName}}IdPage.pageMeta = {
+  title: 'New ID Page',
+  description: 'New ID Page',
+  keywords: '',
+  layoutKind: LayoutKind.Main,
+  path: PagePath.{{upperSnakeCase pageName}}_ID,
+}
+
+export default {{pascalCase pageName}}IdPage
+

@@ -1,59 +1,32 @@
-import React, { FC, ReactElement, useEffect } from 'react'
+import React, { FC, ReactElement } from 'react'
 import Meta from './Meta'
-import styles from './Layout.module.scss'
-import { TopNavigation } from '@mono-graph/components'
-import PagePath from '../../constants/page-path'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUser, userSlice } from '@mono-graph/store'
-import { PageMeta } from '@mono-graph/core'
-import { ToastContainer } from 'react-toastify'
+import { LayoutKind, PageMeta } from '@mono-graph/core'
+import { LayoutComponent } from '../../type'
+import EmptyLayout from './EmptyLayout/EmptyLayout'
+import MainLayout from './MainLayout/MainLayout'
 
-const { requestUser } = userSlice.actions
+function getLayoutElement(layoutKind: LayoutKind): LayoutComponent {
+  switch (layoutKind) {
+    case LayoutKind.Empty:
+      return EmptyLayout
+    case LayoutKind.Main:
+      return MainLayout
+  }
+}
 
 interface Props {
   pageMeta: PageMeta
   children: ReactElement
 }
 
-const Layout: FC<Props> = ({ children, pageMeta }) => {
-  const dispatch = useDispatch()
-  const user = useSelector(getUser)
-
-  useEffect(() => {
-    dispatch(requestUser())
-  }, [dispatch])
-
+const Layout: FC<Props> = ({ pageMeta, children: pageComponent }) => {
+  const LayoutElement = getLayoutElement(pageMeta.layoutKind)
   return (
-    <div className={styles.wrap}>
+    <>
       <Meta pageMeta={pageMeta} />
 
-      <div className={styles.navWrap}>
-        <TopNavigation
-          user={user}
-          pages={[
-            {
-              path: PagePath.VisualizationOfPowerFlows,
-              label: 'Visualization Of Power Flows',
-              isActive: PagePath.VisualizationOfPowerFlows === pageMeta.path,
-            },
-            {
-              path: PagePath.DailyProduction,
-              label: 'Daily Production',
-              isActive: PagePath.DailyProduction === pageMeta.path,
-            },
-            {
-              path: PagePath.Profile,
-              label: 'User Profile',
-              isActive: PagePath.Profile === pageMeta.path,
-            },
-          ]}
-        />
-      </div>
-
-      <div className={styles.content}>{children}</div>
-
-      <ToastContainer />
-    </div>
+      <LayoutElement pageMeta={pageMeta}>{pageComponent}</LayoutElement>
+    </>
   )
 }
 

@@ -28,7 +28,7 @@ export const ProfileForm: FC<FormProps<UserModel>> = ({
   })
 
   return (
-    <form className={styles['wrap']} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.wrap} onSubmit={handleSubmit(onSubmit)}>
       <TextField
         autoFocus
         label="First Name"
