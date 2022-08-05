@@ -69,6 +69,11 @@ pnpm nx g @nrwl/next:lib components
   },
 ```
 
+**Add**
+```bash
+pnpm add -D @types/testing-library__jest-dom
+```
+
 #### Reset styles
 
 ```bash
@@ -117,4 +122,17 @@ And in runners replace with `"devServerTarget": "ui-e2e:serve-all"`
 
 ```bash
 pnpm add start-server-and-test
+```
+
+#### For components lib change in the `tsconfig.json`
+
+```bash
+noPropertyAccessFromIndexSignature: false
+```
+
+#### Add extra testing libraries
+
+```bash
+pnpm add -D @testing-library/jest-dom
+pnpm add -D @testing-library/user-event
 ```

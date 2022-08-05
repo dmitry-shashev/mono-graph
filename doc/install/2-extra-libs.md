@@ -34,3 +34,16 @@ pnpm add clsx
 ```bash
 pnpm add react-toastify
 ```
+
+
+#### For code generation
+
+```bash
+pnpm add -D plop
+```
+
+#### For encoding
+
+```bash
+pnpm add js-base64
+```

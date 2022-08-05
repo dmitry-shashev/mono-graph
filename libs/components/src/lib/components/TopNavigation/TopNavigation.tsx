@@ -15,15 +15,15 @@ interface Props {
 
 export const TopNavigation: FC<Props> = ({ pages, user }) => {
   return (
-    <div aria-label="Top Navigation" className={styles['wrap']}>
-      <div className={styles['wrapContent']}>
-        <ul className={styles['navList']}>
+    <div aria-label="Top Navigation" className={styles.wrap}>
+      <div className={styles.wrapContent}>
+        <ul className={styles.navList}>
           {pages.map(({ label, path, isActive }) => (
             <li key={path}>
               <Link href={path}>
                 <a
                   className={clsx('unStyledLink', {
-                    [styles['active']]: isActive,
+                    [styles.active]: isActive,
                   })}
                 >
                   {label}
@@ -32,7 +32,7 @@ export const TopNavigation: FC<Props> = ({ pages, user }) => {
             </li>
           ))}
         </ul>
-        <div className={styles['userName']}>
+        <div className={styles.userName}>
           {user.firstName} {user.lastName}
         </div>
       </div>

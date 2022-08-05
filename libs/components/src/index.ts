@@ -2,4 +2,5 @@ export * from './lib/components/TopNavigation/TopNavigation'
 export * from './lib/components/ProfileForm/ProfileForm'
 export * from './lib/components/HourlyEnergyChart/HourlyEnergyChart'
 export * from './lib/components/PowerFlowDiagram/PowerFlowDiagram'
+
 export * from './lib/interfaces/form-props'

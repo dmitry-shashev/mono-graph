@@ -56,6 +56,16 @@
       "options": {
         "lintFilePatterns": ["apps/ui/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "tsc": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc -p apps/ui"
+          }
+        ]
+      }
     }
   },
   "tags": []

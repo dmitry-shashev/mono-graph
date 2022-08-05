@@ -24,7 +24,7 @@ export const PowerFlowDiagram: FC<Props> = ({ data }) => {
   }, [data])
 
   return (
-    <div className={styles['wrap']}>
+    <div className={styles.wrap}>
       <Diagram
         initState={{
           nodes: [

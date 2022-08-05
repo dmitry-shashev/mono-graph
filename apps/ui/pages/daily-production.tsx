@@ -1,5 +1,5 @@
 import React from 'react'
-import { Page, useDailyEnergyProduction } from '@mono-graph/core'
+import { LayoutKind, Page, useDailyEnergyProduction } from '@mono-graph/core'
 import PagePath from '../lib/constants/page-path'
 import { CircularProgress } from '@mui/material'
 import { HourlyEnergyChart } from '@mono-graph/components'
@@ -34,6 +34,7 @@ DailyProductionPage.pageMeta = {
   title: 'Daily Production',
   description: '',
   keywords: '',
+  layoutKind: LayoutKind.Main,
   path: PagePath.DailyProduction,
 }
 

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Page, useCurrentRealTime } from '@mono-graph/core'
+import { LayoutKind, Page, useCurrentRealTime } from '@mono-graph/core'
 import PagePath from '../lib/constants/page-path'
 import { CircularProgress } from '@mui/material'
 import { PowerFlowDiagram } from '@mono-graph/components'
 
-const VisualizationOfPowerFlowsPage: Page = () => {
+const GraphPage: Page = () => {
   const { loading, errorMessage, data } = useCurrentRealTime()
 
   if (loading) {
@@ -29,11 +29,12 @@ const VisualizationOfPowerFlowsPage: Page = () => {
   return <>{data && <PowerFlowDiagram data={data} />}</>
 }
 
-VisualizationOfPowerFlowsPage.pageMeta = {
+GraphPage.pageMeta = {
   title: 'Visualization Of Power Flows',
   description: '',
   keywords: '',
-  path: PagePath.VisualizationOfPowerFlows,
+  layoutKind: LayoutKind.Main,
+  path: PagePath.Graph,
 }
 
-export default VisualizationOfPowerFlowsPage
+export default GraphPage

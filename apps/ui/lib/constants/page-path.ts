@@ -1,6 +1,6 @@
 enum PagePath {
   Profile = '/profile',
-  VisualizationOfPowerFlows = '/visualization-of-power-flows',
+  Graph = '/graph',
   DailyProduction = '/daily-production',
 }
 
