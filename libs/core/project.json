@@ -27,6 +27,16 @@
         "jestConfig": "libs/core/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "tsc": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc -p libs/core"
+          }
+        ]
+      }
     }
   },
   "tags": []
