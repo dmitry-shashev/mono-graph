@@ -136,3 +136,20 @@ noPropertyAccessFromIndexSignature: false
 pnpm add -D @testing-library/jest-dom
 pnpm add -D @testing-library/user-event
 ```
+
+#### Each typescript project must contain `tsc` target in `project.json`
+
+> Pay attention - specify the path to the project
+
+```bash
+    "tsc": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc -p apps/ui-e2e"
+          }
+        ]
+      }
+    }
+```

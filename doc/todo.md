@@ -1,5 +1,6 @@
-- [ ] Add plop generators
-- [ ] Add a lib for unit tests
+- [x] Add plop generators
+- [x] Add a lib for unit tests
+- [ ] Investigate relative imports
 - [ ] Add tests
 - [ ] Add storybook
 - [ ] Add strict typescript rules
