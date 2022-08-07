@@ -10,7 +10,10 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@mono-graph/core": ["libs/core/src/index.ts"],
+    }
   },
   "files": [],
   "include": [],
