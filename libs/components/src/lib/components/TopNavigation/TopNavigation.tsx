@@ -32,7 +32,7 @@ export const TopNavigation: FC<Props> = ({ pages, user }) => {
             </li>
           ))}
         </ul>
-        <div className={styles.userName}>
+        <div aria-label="Full Name" className={styles.userName}>
           {user.firstName} {user.lastName}
         </div>
       </div>

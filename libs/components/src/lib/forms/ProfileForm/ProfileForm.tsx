@@ -30,6 +30,9 @@ export const ProfileForm: FC<FormProps<UserModel>> = ({
   return (
     <form className={styles.wrap} onSubmit={handleSubmit(onSubmit)}>
       <TextField
+        inputProps={{
+          'aria-label': 'First Name',
+        }}
         autoFocus
         label="First Name"
         variant="outlined"
@@ -42,6 +45,9 @@ export const ProfileForm: FC<FormProps<UserModel>> = ({
         })}
       />
       <TextField
+        inputProps={{
+          'aria-label': 'Last Name',
+        }}
         label="Last Name"
         variant="outlined"
         disabled={loading}
@@ -58,6 +64,7 @@ export const ProfileForm: FC<FormProps<UserModel>> = ({
         color="primary"
         type="submit"
         size="large"
+        aria-label="Submit the form"
       >
         Submit
       </Button>
