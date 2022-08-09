@@ -2,15 +2,13 @@ export * from './lib/services/resource.service'
 
 export * from './lib/constants/empty-page-meta'
 export * from './lib/constants/layout-kind'
+export * from './lib/constants/empty-user'
 
 export * from './lib/helpers/str.helper'
 
-export * from './lib/models/current-real-time.model'
-export * from './lib/models/hourly-energy-production.model'
-export * from './lib/models/user.model'
+export * from './lib/_generated/apollo-hooks'
+
+export * from './lib/_generated/apollo-types'
 
 export * from './lib/interfaces/page'
 export * from './lib/interfaces/page-meta'
-
-export * from './lib/hooks/useCurrentRealTime'
-export * from './lib/hooks/useDailyEnergyProduction'

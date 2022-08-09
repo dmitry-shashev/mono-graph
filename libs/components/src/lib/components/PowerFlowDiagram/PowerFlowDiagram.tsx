@@ -1,17 +1,17 @@
 import React, { FC, useEffect } from 'react'
-import { CurrentRealTimeModel } from '@mono-graph/core'
 import { Diagram } from 'react-easy-diagram'
 import styles from './PowerFlowDiagram.module.scss'
+import { CurrentRealTime } from '@mono-graph/core'
 
 interface Props {
-  data: CurrentRealTimeModel
+  data: CurrentRealTime
 }
 
 export const PowerFlowDiagram: FC<Props> = ({ data }) => {
   // the Diagram library memoize labels and save inside its state,
   // so we have to update them manually
   useEffect(() => {
-    const dataKeys = Object.keys(data) as Array<keyof CurrentRealTimeModel>
+    const dataKeys = Object.keys(data) as Array<keyof CurrentRealTime>
     dataKeys.forEach((key) => {
       const labelElem = document.querySelector(
         `#${key} .react_fast_diagram_NodeLabel`

@@ -5,9 +5,7 @@
     "outDir": "../../dist/out-tsc",
     "allowJs": true,
     "types": ["cypress", "node"],
-    "paths": {
-      
-    }
+    "paths": {}
   },
   "include": ["src/**/*.ts", "src/**/*.js", "cypress.config.ts"]
 }

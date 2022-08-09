@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { UserModel } from '@mono-graph/core'
 import { FormProps } from '../../interfaces/form-props'
 import { useForm } from 'react-hook-form'
 import { Button, TextField } from '@mui/material'
 import styles from './ProfileForm.module.scss'
+import { User } from '@mono-graph/core'
 
 const FIELD_REQUIRED_MESSAGE = 'The field is required'
 
@@ -14,7 +14,7 @@ function notAllowedSymbolsValidator(value: string) {
   return true
 }
 
-export const ProfileForm: FC<FormProps<UserModel>> = ({
+export const ProfileForm: FC<FormProps<User>> = ({
   loading,
   defaultValues = {},
   onSubmit,
@@ -23,7 +23,7 @@ export const ProfileForm: FC<FormProps<UserModel>> = ({
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<UserModel>({
+  } = useForm<User>({
     defaultValues,
   })
 

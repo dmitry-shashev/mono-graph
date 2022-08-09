@@ -1,4 +1,3 @@
-import { UserModel } from '@mono-graph/core'
 import {
   createSelector,
   createSlice,
@@ -6,25 +5,22 @@ import {
   Slice,
 } from '@reduxjs/toolkit'
 import { RootState } from '../store'
+import { EmptyUser, User } from '@mono-graph/core'
 
 interface UserState {
-  user: UserModel
+  user: User
 }
 
 const initialState: UserState = {
-  user: {
-    id: 0,
-    firstName: '',
-    lastName: '',
-  },
+  user: EmptyUser,
 }
 
 export const userSlice: Slice<
   UserState,
   {
     requestUser: (state: UserState, _action: PayloadAction) => void
-    updateUser: (state: UserState, _action: PayloadAction<UserModel>) => void
-    setUser: (state: UserState, action: PayloadAction<UserModel>) => void
+    updateUser: (state: UserState, _action: PayloadAction<User>) => void
+    setUser: (state: UserState, action: PayloadAction<User>) => void
   }
 > = createSlice({
   name: 'user',
@@ -40,7 +36,7 @@ export const userSlice: Slice<
 
 const getUserState = (state: RootState): UserState => state.userReducer
 
-export const getUser: (state: UserState) => UserModel = createSelector(
+export const getUser: (state: UserState) => User = createSelector(
   getUserState,
   (userState) => userState.user
 )
