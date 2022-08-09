@@ -1,0 +1,41 @@
+type HourlyEnergyProduction {
+  hour: Int!
+  value: Float!
+}
+
+type CurrentRealTime {
+  production: Float!
+  consumption: Float!
+  import: Float!
+  export: Float!
+  charged: Float!
+  discharged: Float!
+}
+
+enum UserStatus {
+  ACTIVE
+  DISABLED
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  status: UserStatus!
+}
+
+input UserInput {
+  id: ID
+  firstName: String!
+  lastName: String!
+}
+
+type Query {
+  getUser: User
+  getCurrentRealTime: CurrentRealTime
+  getDailyEnergyProduction: [HourlyEnergyProduction!]!
+}
+
+type Mutation {
+  updateUser(input: UserInput!): User
+}

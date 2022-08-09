@@ -1,11 +1,15 @@
 import React from 'react'
-import { LayoutKind, Page, useDailyEnergyProduction } from '@mono-graph/core'
+import {
+  LayoutKind,
+  Page,
+  useDailyEnergyProductionQuery,
+} from '@mono-graph/core'
 import PagePath from '../lib/constants/page-path'
 import { CircularProgress } from '@mui/material'
 import { HourlyEnergyChart } from '@mono-graph/components'
 
 const DailyProductionPage: Page = () => {
-  const { loading, errorMessage, data } = useDailyEnergyProduction()
+  const { loading, error, data } = useDailyEnergyProductionQuery()
 
   if (loading) {
     return (
@@ -15,17 +19,17 @@ const DailyProductionPage: Page = () => {
     )
   }
 
-  if (errorMessage) {
+  if (error) {
     return (
       <div className="errorMessage">
-        <div>{errorMessage}</div>
+        <div>{error.message}</div>
       </div>
     )
   }
 
   return (
     <div>
-      <HourlyEnergyChart data={data} />
+      <HourlyEnergyChart data={data.getDailyEnergyProduction} />
     </div>
   )
 }

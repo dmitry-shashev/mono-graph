@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styles from './TopNavigation.module.scss'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { UserModel } from '@mono-graph/core'
+import { User } from '@mono-graph/core'
 
 interface Props {
   pages: Array<{
@@ -10,7 +10,7 @@ interface Props {
     path: string
     isActive: boolean
   }>
-  user: UserModel
+  user: User
 }
 
 export const TopNavigation: FC<Props> = ({ pages, user }) => {

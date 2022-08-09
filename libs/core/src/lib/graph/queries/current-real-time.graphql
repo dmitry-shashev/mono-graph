@@ -1,0 +1,10 @@
+query CurrentRealTime {
+  getCurrentRealTime {
+    production
+    consumption
+    import
+    export
+    charged
+    discharged
+  }
+}

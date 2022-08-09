@@ -12,7 +12,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@mono-graph/core": ["libs/core/src/index.ts"],
+      "@mono-graph/core": ["libs/core/src/index.ts"]
     }
   },
   "files": [],

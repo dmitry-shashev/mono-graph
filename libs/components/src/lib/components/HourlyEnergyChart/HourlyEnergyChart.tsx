@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react'
-import { HourlyEnergyProductionModel } from '@mono-graph/core'
 import { Chart } from 'react-google-charts'
+import { HourlyEnergyProduction } from '@mono-graph/core'
 
 type ChartRowType = [string | number, string | number]
 type ChartDataType = Array<ChartRowType>
@@ -13,7 +13,7 @@ const options = {
 }
 
 interface Props {
-  data: Array<HourlyEnergyProductionModel>
+  data: Array<HourlyEnergyProduction>
 }
 
 export const HourlyEnergyChart: FC<Props> = ({ data }) => {

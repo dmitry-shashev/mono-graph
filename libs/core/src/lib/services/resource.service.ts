@@ -1,13 +1,22 @@
-import { UserModel } from '../models/user.model'
-import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
+import {
+  ApolloClient,
+  createHttpLink,
+  gql,
+  InMemoryCache,
+} from '@apollo/client'
+import { User } from '../_generated/apollo-types'
+import { fetch } from 'cross-fetch'
 
 export abstract class ResourceService {
   private static readonly apolloClient = new ApolloClient({
-    uri: 'http://localhost:3333/graphql',
+    link: createHttpLink({
+      uri: 'http://localhost:3333/graphql',
+      fetch,
+    }),
     cache: new InMemoryCache(),
   })
 
-  public static async getUser(): Promise<UserModel> {
+  public static async getUser(): Promise<User> {
     const result = await ResourceService.apolloClient.query({
       query: gql`
         query {
@@ -15,23 +24,19 @@ export abstract class ResourceService {
             id
             firstName
             lastName
+            status
           }
         }
       `,
     })
-    const user = await result.data.getUser
-    return {
-      id: Number(user.id),
-      firstName: String(user.firstName),
-      lastName: String(user.lastName),
-    }
+    return result.data.getUser
   }
 
-  public static async updateUser(newUser: UserModel): Promise<boolean> {
+  public static async updateUser(newUser: User): Promise<boolean> {
     await new Promise((r) => setTimeout(r, 2000))
     const result = await ResourceService.apolloClient.mutate({
       mutation: gql`
-        mutation ($input: UserInput) {
+        mutation ($input: UserInput!) {
           updateUser(input: $input) {
             id
             firstName
@@ -40,7 +45,11 @@ export abstract class ResourceService {
         }
       `,
       variables: {
-        input: newUser,
+        input: {
+          id: newUser.id,
+          firstName: newUser.firstName,
+          lastName: newUser.lastName,
+        },
       },
     })
 

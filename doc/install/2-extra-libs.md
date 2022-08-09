@@ -35,7 +35,6 @@ pnpm add clsx
 pnpm add react-toastify
 ```
 
-
 #### For code generation
 
 ```bash

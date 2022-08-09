@@ -2,7 +2,7 @@ import { userSlice } from '../reducers/userSlice'
 import { call, put, takeEvery } from '@redux-saga/core/effects'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { simpleRequest, simpleToastRequest } from './common'
-import { ResourceService, UserModel } from '@mono-graph/core'
+import { ResourceService, User } from '@mono-graph/core'
 
 const { requestUser, setUser, updateUser } = userSlice.actions
 
@@ -12,13 +12,13 @@ function* workRequestUser(action: PayloadAction) {
     function* () {
       return yield call(ResourceService.getUser)
     },
-    function* (user: UserModel) {
+    function* (user: User) {
       yield put(setUser(user))
     }
   )
 }
 
-function* workUpdateUser(action: PayloadAction<UserModel>) {
+function* workUpdateUser(action: PayloadAction<User>) {
   yield simpleToastRequest(
     action.type,
     function* () {

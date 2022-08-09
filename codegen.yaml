@@ -1,0 +1,15 @@
+schema: ./libs/core/src/lib/graph/schema.graphql
+documents: ./libs/core/src/lib/graph/queries/*.graphql
+generates:
+  ./libs/core/src/lib/_generated/apollo-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+  ./libs/core/src/lib/_generated/apollo-hooks.ts:
+    plugins:
+      - typescript-react-apollo
+    config:
+      withHooks: true
+    preset: import-types
+    presetConfig:
+      typesPath: ./apollo-types

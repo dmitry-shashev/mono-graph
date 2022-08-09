@@ -3,7 +3,7 @@ import PagePath from '../lib/constants/page-path'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser, useActiveRequests, userSlice } from '@mono-graph/store'
 import { ProfileForm } from '@mono-graph/components'
-import { LayoutKind, Page, UserModel } from '@mono-graph/core'
+import { LayoutKind, Page, User } from '@mono-graph/core'
 
 const { updateUser } = userSlice.actions
 
@@ -12,13 +12,13 @@ const ProfilePage: Page = () => {
   const user = useSelector(getUser)
   const loading = useActiveRequests([updateUser.type])
 
-  const onProfileSubmit = (newUser: UserModel) => {
+  const onProfileSubmit = (newUser: User) => {
     dispatch(updateUser(newUser))
   }
 
   return (
     <div>
-      {!!user.id && (
+      {user.firstName && (
         <ProfileForm
           defaultValues={user}
           onSubmit={onProfileSubmit}

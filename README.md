@@ -17,7 +17,7 @@ For presentation purposes this engine has `Redux + Saga + Apollo`
 
 `core` is used by the frontend and backend
 
-***
+---
 
 #### Install
 

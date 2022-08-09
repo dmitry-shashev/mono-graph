@@ -24,7 +24,7 @@ export const errorSlice: Slice<
     ) => void
     clearError: (state: ErrorState, action: PayloadAction<string>) => void
   }
-  > = createSlice({
+> = createSlice({
   name: 'error',
   initialState,
   reducers: {

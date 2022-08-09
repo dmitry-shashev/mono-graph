@@ -70,6 +70,7 @@ pnpm nx g @nrwl/next:lib components
 ```
 
 **Add**
+
 ```bash
 pnpm add -D @types/testing-library__jest-dom
 ```
