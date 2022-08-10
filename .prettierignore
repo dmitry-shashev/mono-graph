@@ -1,6 +1,9 @@
 # Add files here to ignore them from prettier formatting
 
 /dist
+/tmp
 /coverage
 /templates
 _generated
+pnpm-lock.yaml
+doc

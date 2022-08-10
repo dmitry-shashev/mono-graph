@@ -1,0 +1,31 @@
+import BaseDataConstant from './base-data-constant';
+
+interface {{ pascalCase constantName }}Data {
+  readonly color: string
+  readonly cost: number
+}
+
+class {{ pascalCase constantName }}Inner extends BaseDataConstant<{{ pascalCase constantName }}Data, {{ pascalCase constantName }}Inner> {
+  public readonly UNDEFINED: {{ pascalCase constantName }}Data = {
+    color: '',
+    cost: 0,
+  }
+
+  public readonly RED: {{ pascalCase constantName }}Data = {
+    color: 'Red',
+    cost: 200,
+  }
+
+  public readonly GREEN: {{ pascalCase constantName }}Data = {
+    color: 'Green',
+    cost: 7,
+  }
+
+  public getAll(): ReadonlyArray<{{ pascalCase constantName }}Data> {
+    return [this.RED, this.GREEN]
+  }
+}
+
+const {{ pascalCase constantName }} = new {{ pascalCase constantName }}Inner()
+
+export default {{ pascalCase constantName }}

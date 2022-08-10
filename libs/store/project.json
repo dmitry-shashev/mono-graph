@@ -33,7 +33,7 @@
       "options": {
         "commands": [
           {
-            "command": "tsc -p libs/store"
+            "command": "tsc --noEmit -p libs/store/tsconfig.lib.json"
           }
         ]
       }

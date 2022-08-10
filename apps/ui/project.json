@@ -62,7 +62,7 @@
       "options": {
         "commands": [
           {
-            "command": "tsc -p apps/ui"
+            "command": "tsc --noEmit -p apps/ui/tsconfig.json"
           }
         ]
       }
