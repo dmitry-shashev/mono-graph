@@ -50,6 +50,16 @@
         "jestConfig": "apps/backend/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "tsc": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --noEmit -p apps/backend/tsconfig.app.json"
+          }
+        ]
+      }
     }
   },
   "tags": []

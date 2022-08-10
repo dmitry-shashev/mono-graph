@@ -24,7 +24,7 @@
       "options": {
         "commands": [
           {
-            "command": "tsc -p libs/components"
+            "command": "tsc --noEmit -p libs/components/tsconfig.lib.json"
           }
         ]
       }

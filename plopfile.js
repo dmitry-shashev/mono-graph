@@ -69,7 +69,7 @@ module.exports = function (plop) {
       {
         type: 'add',
         templateFile: './templates/constant.hbs',
-        path: './src/lib/constants/data/{{ constantName }}.ts',
+        path: './libs/core/src/lib/constants/data/{{ constantName }}.ts',
       },
     ],
   })

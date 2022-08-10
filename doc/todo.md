@@ -2,7 +2,7 @@
 - [x] Add a lib for unit tests
 - [x] Investigate relative imports
 - [x] Add apollo auto-generation, check enums
-- [ ] Add complex constants
+- [x] Add complex constants
 - [ ] Investigate nrwl generators
 - [ ] Add tests
 - [ ] Add storybook

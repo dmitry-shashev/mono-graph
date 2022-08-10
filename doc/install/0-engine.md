@@ -148,9 +148,13 @@ pnpm add -D @testing-library/user-event
       "options": {
         "commands": [
           {
-            "command": "tsc -p apps/ui-e2e"
+            "command": "tsc --noEmit -p apps/ui-e2e/tsconfig.json"
           }
         ]
       }
     }
 ```
+
+> For the library it should be `apps/ui-e2e/tsconfig.lib.json`
+>
+> For the backend it should be `apps/ui-e2e/tsconfig.app.json`

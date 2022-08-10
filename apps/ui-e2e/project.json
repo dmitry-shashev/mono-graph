@@ -40,7 +40,7 @@
       "options": {
         "commands": [
           {
-            "command": "tsc -p apps/ui-e2e"
+            "command": "tsc -p apps/ui-e2e/tsconfig.json"
           }
         ]
       }
