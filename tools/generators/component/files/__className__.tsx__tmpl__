@@ -1,0 +1,14 @@
+import React, { FC } from 'react'
+import styles from './<%= className %>.module.scss'
+
+interface Props {
+  name: string
+}
+
+export const <%= className %>: FC<Props> = ({ name }) => {
+  return (
+    <div className={styles.wrap}>
+      <h1>Hi - {name}</h1>
+    </div>
+  )
+}

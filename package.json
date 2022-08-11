@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "license": "MIT",
   "scripts": {
     "codegen": "graphql-codegen",
@@ -18,7 +18,12 @@
     "serve-backend": "nx serve backend --prod",
     "serve-ui": "nx serve ui --prod",
     "serve-all": "start-server-and-test serve-backend 3333 serve-ui",
-    "build-and-start": "pnpm build && pnpm serve-all"
+    "build-and-start": "pnpm build && pnpm serve-all",
+    "g-co": "nx workspace-generator component",
+    "g-page": "nx workspace-generator page",
+    "g-page-id": "nx workspace-generator page-id",
+    "g-constant": "nx workspace-generator constant",
+    "g-service": "nx workspace-generator service"
   },
   "private": true,
   "devDependencies": {
@@ -33,6 +38,7 @@
     "@graphql-codegen/typescript-urql": "3.6.4",
     "@nrwl/cli": "14.5.2",
     "@nrwl/cypress": "14.5.2",
+    "@nrwl/devkit": "14.5.2",
     "@nrwl/eslint-plugin-nx": "14.5.2",
     "@nrwl/express": "^14.5.2",
     "@nrwl/jest": "14.5.2",
@@ -67,7 +73,6 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "jest": "27.5.1",
     "nx": "14.5.2",
-    "plop": "3.1.1",
     "prettier": "^2.6.2",
     "react-test-renderer": "18.2.0",
     "sass": "1.54.0",
