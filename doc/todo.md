@@ -3,7 +3,7 @@
 - [x] Investigate relative imports
 - [x] Add apollo auto-generation, check enums
 - [x] Add complex constants
-- [ ] Investigate nrwl generators
+- [x] Investigate nrwl generators
 - [ ] Add tests
 - [ ] Add storybook
 - [ ] Add strict typescript rules

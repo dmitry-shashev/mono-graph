@@ -1,0 +1,12 @@
+import React from 'react'
+import { render } from '@testing-library/react'
+import { <%= className %> } from './<%= className %>'
+import { textInTheDocument } from '../../test/test-utils';
+
+describe('<%= className %>', () => {
+  it('component', async () => {
+    const TEST_NAME = 'One'
+    render(<<%= className %> name={TEST_NAME} />)
+    await textInTheDocument(TEST_NAME)
+  })
+})

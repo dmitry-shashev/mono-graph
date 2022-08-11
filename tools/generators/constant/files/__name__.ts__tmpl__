@@ -1,0 +1,31 @@
+import BaseDataConstant from './base-data-constant';
+
+interface <%= className %>Data {
+  readonly color: string
+  readonly cost: number
+}
+
+class <%= className %>Inner extends BaseDataConstant<<%= className %>Data, <%= className %>Inner> {
+  public readonly UNDEFINED: <%= className %>Data = {
+    color: '',
+    cost: 0,
+  }
+
+  public readonly RED: <%= className %>Data = {
+    color: 'Red',
+    cost: 200,
+  }
+
+  public readonly GREEN: <%= className %>Data = {
+    color: 'Green',
+    cost: 7,
+  }
+
+  public getAll(): ReadonlyArray<<%= className %>Data> {
+    return [this.RED, this.GREEN]
+  }
+}
+
+const <%= className %> = new <%= className %>Inner()
+
+export default <%= className %>

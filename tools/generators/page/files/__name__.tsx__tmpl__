@@ -2,7 +2,7 @@ import React from 'react'
 import { LayoutKind, Page } from '@mono-graph/core';
 import PagePath from '../lib/constants/page-path';
 
-const {{pascalCase pageName}}Page: Page = () => {
+const <%= className %>Page: Page = () => {
   return (
     <div>
       <h1>New Page</h1>
@@ -10,12 +10,12 @@ const {{pascalCase pageName}}Page: Page = () => {
   )
 }
 
-{{pascalCase pageName}}Page.pageMeta = {
+<%= className %>Page.pageMeta = {
   title: 'New Page',
   description: 'New Page',
   keywords: '',
   layoutKind: LayoutKind.Main,
-  path: PagePath.{{upperSnakeCase pageName}},
+  path: PagePath.<%= className %>,
 }
 
-export default {{pascalCase pageName}}Page
+export default <%= className %>Page
