@@ -34,7 +34,10 @@ export default async function (tree: Tree, schema: SchemaProps) {
 
   tree.write(
     pagesPaths,
-    pathsContent.replace('}', `${namesSet.className} = '/${namesSet.name}', }`)
+    pathsContent.replace(
+      '}',
+      `${namesSet.className} = '/${namesSet.fileName}', }`
+    )
   )
 
   await formatFiles(tree)
