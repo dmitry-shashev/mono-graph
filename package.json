@@ -1,8 +1,13 @@
 {
   "name": "mono-graph",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "scripts": {
+    "g-co": "nx workspace-generator component",
+    "g-page": "nx workspace-generator page",
+    "g-page-id": "nx workspace-generator page-id",
+    "g-constant": "nx workspace-generator constant",
+    "g-service": "nx workspace-generator service",
     "codegen": "graphql-codegen",
     "cypress-install": "cypress install --force",
     "tsc": "nx run-many --target=tsc",
@@ -18,12 +23,7 @@
     "serve-backend": "nx serve backend --prod",
     "serve-ui": "nx serve ui --prod",
     "serve-all": "start-server-and-test serve-backend 3333 serve-ui",
-    "build-and-start": "pnpm build && pnpm serve-all",
-    "g-co": "nx workspace-generator component",
-    "g-page": "nx workspace-generator page",
-    "g-page-id": "nx workspace-generator page-id",
-    "g-constant": "nx workspace-generator constant",
-    "g-service": "nx workspace-generator service"
+    "build-and-start": "pnpm build && pnpm serve-all"
   },
   "private": true,
   "devDependencies": {

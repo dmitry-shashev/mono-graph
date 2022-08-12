@@ -15,7 +15,7 @@ export default async function (tree: Tree, schema: any) {
   generateFiles(
     tree,
     joinPathFragments(__dirname, './files'),
-    joinPathFragments(uiConfigs.root, `/pages/${namesSet.name}`),
+    joinPathFragments(uiConfigs.root, `/pages/${namesSet.fileName}`),
     {
       tmpl: '',
       ...namesSet,
@@ -32,7 +32,7 @@ export default async function (tree: Tree, schema: any) {
     pagesPaths,
     pathsContent.replace(
       '}',
-      `${namesSet.className}_ID = '/${namesSet.name}/[id]', }`
+      `${namesSet.className}_ID = '/${namesSet.fileName}/[id]', }`
     )
   )
 
