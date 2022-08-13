@@ -83,7 +83,9 @@ export async function typeInInputByAriaLabel(
 ): Promise<void> {
   const elem = screen.getByLabelText(arialLabel)
   await userEvent.clear(elem)
-  return userEvent.type(elem, value)
+  if (value) {
+    return userEvent.type(elem, value)
+  }
 }
 
 export function clickByAriaLabel(

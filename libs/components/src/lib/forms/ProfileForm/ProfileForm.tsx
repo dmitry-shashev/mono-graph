@@ -4,15 +4,8 @@ import { useForm } from 'react-hook-form'
 import { Button, TextField } from '@mui/material'
 import styles from './ProfileForm.module.scss'
 import { User } from '@mono-graph/core'
-
-const FIELD_REQUIRED_MESSAGE = 'The field is required'
-
-function notAllowedSymbolsValidator(value: string) {
-  if (/[,=´`'#&%§"!°_:;\\+?.*^$(){}|[\]/]+/.test(value)) {
-    return 'Next symbols are not allowed - ,=´`\'#&%§"!°_:;\\+?.*^$(){}|[]/'
-  }
-  return true
-}
+import { notAllowedSymbolsValidator } from '../form-validators'
+import { FIELD_REQUIRED_MESSAGE } from '../form-error-messages'
 
 export const ProfileForm: FC<FormProps<User>> = ({
   loading,

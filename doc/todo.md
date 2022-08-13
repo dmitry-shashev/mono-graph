@@ -4,6 +4,7 @@
 - [x] Add apollo auto-generation, check enums
 - [x] Add complex constants
 - [x] Investigate nrwl generators
+- [x] Move regex from forms
 - [ ] Add tests
 - [ ] Add storybook
 - [ ] Add strict typescript rules
