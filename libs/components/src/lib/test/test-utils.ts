@@ -10,8 +10,8 @@ export async function textNotInTheDocument(text: string): Promise<void> {
   })
 }
 
-export async function textInTheDocument(text: string): Promise<void> {
-  const re = new RegExp(text)
+export async function textInTheDocument(text: string | number): Promise<void> {
+  const re = new RegExp(String(text))
   await waitFor(() => {
     expect(screen.getByText(re)).toBeInTheDocument()
   })

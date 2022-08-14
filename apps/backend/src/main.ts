@@ -25,7 +25,7 @@ const dailyEnergyProduction: Array<HourlyEnergyProduction> = []
 for (let i = 1; i < 15; ++i) {
   dailyEnergyProduction.push({
     hour: i,
-    value: 100 * Math.random(),
+    value: 101 * Math.random(),
   })
 }
 

@@ -23,6 +23,7 @@ export const HourlyEnergyChart: FC<Props> = ({ data }) => {
     )
     return [['Hour', 'Energy Production'], ...result]
   }, [data])
+
   return (
     <div>
       <Chart
