@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { HourlyEnergyChart } from './HourlyEnergyChart'
 import { getTestHourlyEnergyProduction } from '../../test/test-data'
-import { textInTheDocument } from '../../test/test-utils'
+import { textInTheDocument } from '@mono-graph/core'
 
 jest.mock('react-google-charts', () => ({
   Chart: ({ data }: { data: Array<[string, string]> }) => (

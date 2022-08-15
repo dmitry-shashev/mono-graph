@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { ProfileForm } from './ProfileForm'
-import { clickByAriaLabel, typeInInputByAriaLabel } from '../../test/test-utils'
 import { getTestUser } from '../../test/test-data'
+import { clickByAriaLabel, typeInInputByAriaLabel } from '@mono-graph/core'
 
 describe('ProfileForm', () => {
   it('component', async () => {

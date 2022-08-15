@@ -12,3 +12,5 @@ export * from './lib/_generated/apollo-types'
 
 export * from './lib/interfaces/page'
 export * from './lib/interfaces/page-meta'
+
+export * from './lib/tests/test-utils'
