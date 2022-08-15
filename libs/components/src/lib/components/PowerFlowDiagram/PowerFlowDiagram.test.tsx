@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { PowerFlowDiagram } from './PowerFlowDiagram'
 import { getTestCurrentRealTime } from '../../test/test-data'
 import { IDiagramProps } from 'react-easy-diagram'
-import { textInTheDocument } from '../../test/test-utils'
+import { textInTheDocument } from '@mono-graph/core'
 
 jest.mock('react-easy-diagram', () => ({
   Diagram: ({ initState }: IDiagramProps) => (
