@@ -6,4 +6,5 @@
 /templates
 _generated
 pnpm-lock.yaml
+.pnpm-store
 doc
