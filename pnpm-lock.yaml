@@ -37,6 +37,7 @@ specifiers:
   '@testing-library/user-event': 14.4.2
   '@types/express': 4.17.13
   '@types/jest': 27.4.1
+  '@types/lodash': 4.14.182
   '@types/node': 16.11.7
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
@@ -64,6 +65,7 @@ specifiers:
   husky: 8.0.1
   jest: 27.5.1
   js-base64: 3.7.2
+  lodash: 4.17.21
   next: 12.2.3
   nx: 14.5.2
   prettier: ^2.6.2
@@ -97,6 +99,7 @@ dependencies:
   '@redux-saga/core': 1.1.3
   '@redux-saga/testing-utils': 1.1.3
   '@reduxjs/toolkit': 1.8.3_kkwg4cbsojnjnupd3btipussee
+  '@types/lodash': 4.14.182
   '@types/react-redux': 7.1.24
   clsx: 1.2.1
   core-js: 3.24.1
@@ -107,6 +110,7 @@ dependencies:
   graphql: 16.5.0
   husky: 8.0.1
   js-base64: 3.7.2
+  lodash: 4.17.21
   next: 12.2.3_4cmzoagh3xnjv5n5kgk5jkku4q
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -142,7 +146,7 @@ devDependencies:
   '@nrwl/js': 14.5.2_v7725ak5lpwu7wwl76bv73omh4
   '@nrwl/linter': 14.5.2_hjwsk7t4rtenhyzw3vpfwjmwy4
   '@nrwl/node': 14.5.2_4354dzwy7esbkszerhld2xeciq
-  '@nrwl/nx-cloud': 14.3.0
+  '@nrwl/nx-cloud': 14.4.0
   '@nrwl/react': 14.5.2_7bb75vo7jbxpvan45c4muq7h7u
   '@nrwl/web': 14.5.2_zezmyvhjnsvqtodfc7g72l4z7e
   '@nrwl/workspace': 14.5.2_p4mi2smrdlimk4bbxlu4b6wavm
@@ -3220,12 +3224,13 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/14.3.0:
-    resolution: {integrity: sha512-aByHe8Gp1/IT9CtQYlGLIYBgU+ZtrgEwblBX8kcoBNRPf1OOdouahjyasAjQ9zi1cznve8AzTTcLt2eSCHWfrw==}
+  /@nrwl/nx-cloud/14.4.0:
+    resolution: {integrity: sha512-4sKNzGhBqTipy4fPZD09ZBkV9UTPTn0JUOQxOI7ETqlHhT2u8SfeybSJMnPAi5H6DjsqsooM8JCKPR/7D4+8sQ==}
     hasBin: true
     dependencies:
       axios: 0.21.4
       chalk: 4.1.0
+      dotenv: 10.0.0
       node-machine-id: 1.1.12
       strip-json-comments: 3.1.1
       tar: 6.1.11
@@ -4170,6 +4175,10 @@ packages:
     dependencies:
       '@types/node': 16.11.7
     dev: true
+
+  /@types/lodash/4.14.182:
+    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
+    dev: false
 
   /@types/mime/3.0.0:
     resolution: {integrity: sha512-fccbsHKqFDXClBZTDLA43zl0+TbxyIwyzIzwwhvoJvhNjOErCdeX2xJbURimv2EbSVUGav001PaCJg4mZxMl4w==}

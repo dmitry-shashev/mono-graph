@@ -40,3 +40,9 @@ pnpm add react-toastify
 ```bash
 pnpm add js-base64
 ```
+
+#### Add lodash
+
+```bash
+pnpm add lodash @types/lodash
+```

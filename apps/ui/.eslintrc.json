@@ -20,6 +20,12 @@
     {
       "files": ["*.js", "*.jsx"],
       "rules": {}
+    },
+    {
+      "files": ["*.test.tsx"],
+      "rules": {
+        "react/display-name": "off"
+      }
     }
   ],
   "rules": {
