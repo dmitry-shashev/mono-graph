@@ -5,6 +5,7 @@ export * from './lib/constants/layout-kind'
 export * from './lib/constants/empty-user'
 
 export * from './lib/helpers/str.helper'
+export * from './lib/helpers/obj.helper'
 
 export * from './lib/_generated/apollo-hooks'
 
