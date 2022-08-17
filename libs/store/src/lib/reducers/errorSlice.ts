@@ -6,6 +6,11 @@ import {
 } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 
+export interface StoreErrorPayload {
+  actionType: string
+  message: string
+}
+
 // action.type -> message
 interface ErrorState {
   errors: Record<string, string>
@@ -20,7 +25,7 @@ export const errorSlice: Slice<
   {
     storeError: (
       state: ErrorState,
-      action: PayloadAction<{ actionType: string; message: string }>
+      action: PayloadAction<StoreErrorPayload>
     ) => void
     clearError: (state: ErrorState, action: PayloadAction<string>) => void
   }

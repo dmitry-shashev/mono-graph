@@ -8,8 +8,9 @@ export default {
     },
   },
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
+    '^.+\\.tsx?$': ['babel-jest', { presets: ['@nrwl/next/babel'] }],
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
+  moduleFileExtensions: ['ts', 'js', 'ts', 'tsx'],
   coverageDirectory: '../../coverage/libs/store',
 }

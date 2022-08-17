@@ -48,6 +48,16 @@ export async function ariaLabelContainText(
   })
 }
 
+export async function ariaLabelNotContainText(
+  ariaLabel: string,
+  text: string | number
+): Promise<void> {
+  await waitFor(() => {
+    const elemContent = screen.getByLabelText(ariaLabel).textContent
+    expect(elemContent).not.toBe(text)
+  })
+}
+
 export async function linkIsVisible(
   text: string,
   link: string,
