@@ -10,6 +10,7 @@
     "jest.config.ts",
     "**/*.spec.ts",
     "**/*.test.ts",
+    "**/*.test.tsx",
     "./src/lib/tests/test-utils.ts"
   ]
 }

@@ -3,10 +3,10 @@ import { errorSlice } from '../reducers/errorSlice'
 import { requestSlice } from '../reducers/requestSlice'
 import { put } from '@redux-saga/core/effects'
 
-export function testSimpleRequest<T>(
-  responseData: T,
-  action: PayloadAction,
-  sagaName: (a: PayloadAction) => Generator,
+export function testSimpleRequest<DataType, ActionPayloadType>(
+  responseData: DataType,
+  action: PayloadAction<ActionPayloadType>,
+  sagaName: (a: PayloadAction<ActionPayloadType>) => Generator,
   checkRequest: (requestGenerator: Generator) => void,
   checkResponse: (responseGenerator: Generator) => void
 ) {

@@ -5,7 +5,7 @@
 - [x] Add complex constants
 - [x] Investigate nrwl generators
 - [x] Move regex from forms
-- [ ] Add e2e tests
-- [ ] Add store tests
+- [x] Add e2e tests
+- [x] Add store tests
 - [ ] Add storybook
 - [ ] Add strict typescript rules
