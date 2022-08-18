@@ -6,6 +6,6 @@
 - [x] Investigate nrwl generators
 - [x] Move regex from forms
 - [x] Add e2e tests
-- [x] Add store tests
+- [x] Add store ests
 - [ ] Add storybook
 - [ ] Add strict typescript rules
