@@ -7,5 +7,5 @@
 - [x] Move regex from forms
 - [x] Add e2e tests
 - [x] Add store ests
-- [ ] Add storybook
+- [x] Add storybook
 - [ ] Add strict typescript rules

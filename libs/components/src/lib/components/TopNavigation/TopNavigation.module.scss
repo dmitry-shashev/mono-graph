@@ -1,7 +1,13 @@
+@import '../../mixins';
+
 .wrap {
   display: flex;
   justify-content: center;
   background-color: var(--topMenuBgColor);
+}
+
+.link {
+  @include unStyledLink;
 }
 
 .wrapContent {

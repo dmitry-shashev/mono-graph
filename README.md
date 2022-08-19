@@ -31,3 +31,9 @@ pnpm build
 ```bash
 pnpm prod
 ```
+
+#### Run storybook
+
+```bash
+pnpm sb
+```
