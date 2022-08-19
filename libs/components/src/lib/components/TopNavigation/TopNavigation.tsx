@@ -3,13 +3,10 @@ import styles from './TopNavigation.module.scss'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { User } from '@mono-graph/core'
+import TopNavigationPage from '../../interfaces/top-navigation-page'
 
 interface Props {
-  pages: Array<{
-    label: string
-    path: string
-    isActive: boolean
-  }>
+  pages: Array<TopNavigationPage>
   user: User
 }
 
@@ -22,7 +19,7 @@ export const TopNavigation: FC<Props> = ({ pages, user }) => {
             <li key={path}>
               <Link href={path}>
                 <a
-                  className={clsx('unStyledLink', {
+                  className={clsx(styles.link, {
                     [styles.active]: isActive,
                   })}
                 >

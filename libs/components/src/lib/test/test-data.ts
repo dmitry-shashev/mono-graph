@@ -4,6 +4,7 @@ import {
   User,
   UserStatus,
 } from '@mono-graph/core'
+import TopNavigationPage from '../interfaces/top-navigation-page'
 
 export function getTestUser(): User {
   return {
@@ -12,6 +13,21 @@ export function getTestUser(): User {
     lastName: 'Testerov',
     status: UserStatus.Active,
   }
+}
+
+export function getTestTopNavPages(): Array<TopNavigationPage> {
+  return [
+    {
+      label: 'Some page 1',
+      path: '/some-1',
+      isActive: true,
+    },
+    {
+      label: 'Some page 2',
+      path: '/some-2',
+      isActive: false,
+    },
+  ]
 }
 
 export function getTestHourlyEnergyProduction(): Array<HourlyEnergyProduction> {

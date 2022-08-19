@@ -1,20 +1,12 @@
 import { render, screen } from '@testing-library/react'
 import { TopNavigation } from './TopNavigation'
-import { UserStatus } from '@mono-graph/core'
+import { getTestTopNavPages, getTestUser } from '../../test/test-data'
 
 describe('TopNavigation', () => {
   it('component', async () => {
-    render(
-      <TopNavigation
-        user={{
-          id: '12',
-          firstName: 'F1',
-          lastName: 'L1',
-          status: UserStatus.Active,
-        }}
-        pages={[]}
-      />
-    )
+    const user = getTestUser()
+    const pages = getTestTopNavPages()
+    render(<TopNavigation user={user} pages={pages} />)
     expect(screen.getAllByLabelText('Top Navigation')).toHaveLength(1)
   })
 })

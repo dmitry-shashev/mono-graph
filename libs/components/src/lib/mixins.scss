@@ -1,0 +1,13 @@
+@mixin unStyledLink {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: initial;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
