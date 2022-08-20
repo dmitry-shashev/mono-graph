@@ -9,7 +9,7 @@ export function testSimpleRequest<DataType, ActionPayloadType>(
   sagaName: (a: PayloadAction<ActionPayloadType>) => Generator,
   checkRequest: (requestGenerator: Generator) => void,
   checkResponse: (responseGenerator: Generator) => void
-) {
+): void {
   const { clearError } = errorSlice.actions
   const { startRequest, stopRequest } = requestSlice.actions
   const g = sagaName(action)

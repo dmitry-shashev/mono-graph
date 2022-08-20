@@ -12,7 +12,7 @@ const ProfilePage: Page = () => {
   const user = useSelector(getUser)
   const loading = useActiveRequests([updateUser.type])
 
-  const onProfileSubmit = (newUser: User) => {
+  const onProfileSubmit = (newUser: User): void => {
     dispatch(updateUser(newUser))
   }
 

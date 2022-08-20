@@ -3,9 +3,10 @@ import { PowerFlowDiagram } from './PowerFlowDiagram'
 import { getTestCurrentRealTime } from '../../test/test-data'
 import { IDiagramProps } from 'react-easy-diagram'
 import { textInTheDocument } from '@mono-graph/core'
+import { ReactElement } from 'react'
 
 jest.mock('react-easy-diagram', () => ({
-  Diagram: ({ initState }: IDiagramProps) => (
+  Diagram: ({ initState }: IDiagramProps): ReactElement => (
     <div>
       {initState?.nodes?.map((node) => (
         <div key={node.id} id={node.id}>

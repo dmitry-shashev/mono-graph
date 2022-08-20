@@ -1,5 +1,7 @@
 import * as express from 'express'
 import { graphqlHTTP } from 'express-graphql'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import * as cors from 'cors'
 import * as fs from 'fs'
 import { buildSchema } from 'graphql'
@@ -86,7 +88,9 @@ app.use(
 )
 
 const server = app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`Listening at http://localhost:${PORT}/graphql`)
 })
 
+// eslint-disable-next-line no-console
 server.on('error', console.error)
