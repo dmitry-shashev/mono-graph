@@ -6,7 +6,7 @@ import { ResourceService, User } from '@mono-graph/core'
 
 const { requestUser, setUser, updateUser } = userSlice.actions
 
-export function* workRequestUserSaga(action: PayloadAction) {
+export function* workRequestUserSaga(action: PayloadAction): Generator {
   yield simpleRequest(
     action.type,
     function* () {
@@ -18,7 +18,7 @@ export function* workRequestUserSaga(action: PayloadAction) {
   )
 }
 
-export function* workUpdateUserSaga(action: PayloadAction<User>) {
+export function* workUpdateUserSaga(action: PayloadAction<User>): Generator {
   yield simpleToastRequest(
     action.type,
     function* () {

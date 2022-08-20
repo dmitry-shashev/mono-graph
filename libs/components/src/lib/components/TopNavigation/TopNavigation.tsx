@@ -20,7 +20,7 @@ export const TopNavigation: FC<Props> = ({ pages, user }) => {
               <Link href={path}>
                 <a
                   className={clsx(styles.link, {
-                    [styles.active]: isActive,
+                    [styles.active ?? '']: isActive,
                   })}
                 >
                   {label}

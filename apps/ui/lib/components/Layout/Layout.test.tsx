@@ -3,12 +3,13 @@ import Layout from './Layout'
 import { getTestPageMeta } from '../../test/test-data'
 import { ariaLabelInTheDocument, textInTheDocument } from '@mono-graph/core'
 import MainLayout from './MainLayout/MainLayout'
+import { FC, ReactElement } from 'react'
 
 jest.mock('./MainLayout/MainLayout', (): typeof MainLayout => {
   return (props) => <div aria-label="Test Main Layout">{props.children}</div>
 })
 
-jest.mock('next/head', () => {
+jest.mock('next/head', (): FC<{ children: ReactElement }> => {
   return (props) => <>{props.children}</>
 })
 

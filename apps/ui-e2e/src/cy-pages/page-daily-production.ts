@@ -1,9 +1,9 @@
 abstract class PageDailyProduction {
-  public static open() {
+  public static open(): void {
     cy.visit('/daily-production')
   }
 
-  public static hasChart() {
+  public static hasChart(): void {
     cy.contains('Hour')
     cy.contains('Energy Production')
   }

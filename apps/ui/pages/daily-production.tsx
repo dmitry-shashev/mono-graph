@@ -29,7 +29,7 @@ const DailyProductionPage: Page = () => {
 
   return (
     <div>
-      <HourlyEnergyChart data={data.getDailyEnergyProduction} />
+      {data && <HourlyEnergyChart data={data.getDailyEnergyProduction} />}
     </div>
   )
 }

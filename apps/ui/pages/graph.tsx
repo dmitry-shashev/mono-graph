@@ -28,7 +28,13 @@ const GraphPage: Page = () => {
     )
   }
 
-  return <>{data && <PowerFlowDiagram data={data.getCurrentRealTime} />}</>
+  return (
+    <>
+      {data?.getCurrentRealTime && (
+        <PowerFlowDiagram data={data.getCurrentRealTime} />
+      )}
+    </>
+  )
 }
 
 GraphPage.pageMeta = {

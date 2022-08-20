@@ -8,7 +8,7 @@ import { getTestUser } from './test-data'
 
 jest.mock('@mono-graph/core')
 
-function mockServices() {
+function mockServices(): void {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   ResourceService.getUser.mockImplementation(async () => getTestUser())

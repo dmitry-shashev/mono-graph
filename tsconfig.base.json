@@ -15,6 +15,10 @@
     "skipDefaultLibCheck": true,
     "useUnknownInCatchVariables": false,
     "baseUrl": ".",
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "paths": {
       "@mono-graph/components": ["libs/components/src/index.ts"],
       "@mono-graph/core": ["libs/core/src/index.ts"],
