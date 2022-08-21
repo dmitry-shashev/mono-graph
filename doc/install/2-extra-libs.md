@@ -46,3 +46,9 @@ pnpm add js-base64
 ```bash
 pnpm add lodash @types/lodash
 ```
+
+#### Debounce
+
+```bash
+pnpm add use-debounce
+```

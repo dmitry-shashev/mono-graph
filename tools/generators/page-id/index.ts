@@ -27,6 +27,9 @@ export default async function (tree: Tree, schema: any) {
     '/lib/constants/page-path.ts'
   )
   const pathsContent = tree.read(pagesPaths, 'utf-8')
+  if (!pathsContent) {
+    throw new Error('Can not find the file')
+  }
 
   tree.write(
     pagesPaths,

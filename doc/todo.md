@@ -1,11 +1,6 @@
-- [x] Add plop generators
-- [x] Add a lib for unit tests
-- [x] Investigate relative imports
-- [x] Add apollo auto-generation, check enums
-- [x] Add complex constants
-- [x] Investigate nrwl generators
-- [x] Move regex from forms
-- [x] Add e2e tests
-- [x] Add store tests 
-- [x] Add storybook
-- [x] Add strict typescript rules
+- [x] Add custom hooks
+- [ ] Add storybook on the auto-generation
+- [ ] Improve the request statuses
+- [ ] Complicated saga flow
+- [ ] Modal windows
+- [ ] RTK Query
