@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "license": "MIT",
   "scripts": {
     "g-co": "nx workspace-generator component",
@@ -128,7 +128,8 @@
     "reselect": "4.1.6",
     "reset-css": "5.0.1",
     "start-server-and-test": "1.14.0",
-    "tslib": "2.4.0"
+    "tslib": "2.4.0",
+    "use-debounce": "8.0.3"
   },
   "prettier": {
     "arrowParens": "always",
