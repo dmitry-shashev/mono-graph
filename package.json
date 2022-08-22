@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "license": "MIT",
   "scripts": {
     "g-co": "nx workspace-generator component",
