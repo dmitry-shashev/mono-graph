@@ -1,0 +1,16 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { <%= className %> } from './<%= className %>'
+
+export default {
+  component: <%= className %>,
+  title: '<%= className %>',
+} as ComponentMeta<typeof <%= className %>>
+
+const Template: ComponentStory<typeof <%= className %>> = (args) => (
+  <<%= className %> {...args} />
+)
+
+export const Primary = Template.bind({})
+Primary.args = {
+  name: 'Test Name',
+}
