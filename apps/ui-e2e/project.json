@@ -3,12 +3,24 @@
   "sourceRoot": "apps/ui-e2e/src",
   "projectType": "application",
   "targets": {
-    "serve-all": {
+    "e2e-serve-dev": {
       "builder": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
           {
-            "command": "pnpm build-and-start"
+            "command": "pnpm serve-dev"
+          }
+        ],
+        "parallel": true,
+        "readyWhen": "[ ready ] on http://localhost:4200"
+      }
+    },
+    "e2e-serve-prod": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "pnpm serve-prod"
           }
         ],
         "parallel": true,
@@ -19,12 +31,12 @@
       "executor": "@nrwl/cypress:cypress",
       "options": {
         "cypressConfig": "apps/ui-e2e/cypress.config.ts",
-        "devServerTarget": "ui-e2e:serve-all",
+        "devServerTarget": "ui-e2e:e2e-serve-dev",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "ui-e2e:serve-all"
+          "devServerTarget": "ui-e2e:e2e-serve-prod"
         }
       }
     },
