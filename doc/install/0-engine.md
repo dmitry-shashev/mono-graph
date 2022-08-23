@@ -42,12 +42,20 @@ And add in the scripts section
 ```bash
 pnpm add -D @nrwl/next
 pnpm add -D @nrwl/js
+pnpm add -D @nrwl/cypress
 ```
 
 #### Add the React application
 
 ```bash
 pnpm nx g @nrwl/next:app ui
+```
+
+> The command below may add e2e tests to the existing project
+> but NextJS generates it automatically, so we don't have to run it
+
+```bash
+pnpm nx g @nrwl/cypress:cypress-project ui-e2e --project=ui
 ```
 
 #### Add the components library
@@ -115,9 +123,12 @@ pnpm nx g @nrwl/js:library --name=core
 
 Change `./apps/ui-e2e/project.json`
 
-Add `serve-all`
+Add `e2e-serve-dev` and `e2e-serve-prod`
 
-And in runners replace with `"devServerTarget": "ui-e2e:serve-all"`
+And in runners replace with `"devServerTarget": "ui-e2e:serve-dev"`
+
+> The problem there that we can start only one specific target but in this project
+> we have 2, so the default start command was replaced by the custom one
 
 #### For tests
 
