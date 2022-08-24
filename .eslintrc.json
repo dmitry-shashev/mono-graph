@@ -13,8 +13,32 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "apps:ui",
+                "onlyDependOnLibsWithTags": [
+                  "libs:components",
+                  "libs:core",
+                  "libs:store"
+                ]
+              },
+              {
+                "sourceTag": "apps:backend",
+                "onlyDependOnLibsWithTags": ["libs:core"]
+              },
+              {
+                "sourceTag": "apps:ui-e2e",
+                "onlyDependOnLibsWithTags": []
+              },
+              {
+                "sourceTag": "libs:components",
+                "onlyDependOnLibsWithTags": ["libs:core"]
+              },
+              {
+                "sourceTag": "libs:core",
+                "onlyDependOnLibsWithTags": []
+              },
+              {
+                "sourceTag": "libs:store",
+                "onlyDependOnLibsWithTags": ["libs:core"]
               }
             ]
           }

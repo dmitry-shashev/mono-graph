@@ -1,6 +1,5 @@
 - [x] Add custom hooks
 - [x] Add storybook on the auto-generation
-- [ ] Improve the request statuses
-- [ ] Complicated saga flow
 - [ ] Modal windows
+- [ ] Complicated saga flow
 - [ ] RTK Query
