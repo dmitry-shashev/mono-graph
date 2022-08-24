@@ -2,7 +2,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/components/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["libs:components"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

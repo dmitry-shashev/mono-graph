@@ -58,6 +58,6 @@
       }
     }
   },
-  "tags": [],
-  "implicitDependencies": ["ui"]
+  "tags": ["apps:ui-e2e"],
+  "implicitDependencies": ["ui", "backend"]
 }
