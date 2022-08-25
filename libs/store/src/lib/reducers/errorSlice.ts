@@ -1,10 +1,6 @@
-import {
-  createSelector,
-  createSlice,
-  PayloadAction,
-  Slice,
-} from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
+import { createSelector } from 'reselect'
 
 export interface StoreErrorPayload {
   actionType: string

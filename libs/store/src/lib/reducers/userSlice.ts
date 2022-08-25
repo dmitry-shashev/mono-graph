@@ -1,11 +1,7 @@
-import {
-  createSelector,
-  createSlice,
-  PayloadAction,
-  Slice,
-} from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import { EmptyUser, User } from '@mono-graph/core'
+import { createSelector } from 'reselect'
 
 interface UserState {
   user: User

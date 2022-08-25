@@ -3,6 +3,7 @@ import { configureStore, EnhancedStore } from '@reduxjs/toolkit'
 import requestReducer from '../lib/reducers/requestSlice'
 import errorReducer from '../lib/reducers/errorSlice'
 import userReducer from '../lib/reducers/userSlice'
+import modalReducer from '../lib/reducers/modalSlice'
 import { watchUserSaga } from './sagas/user.saga'
 
 const sagaMiddleware = createSagaMiddleware()
@@ -15,6 +16,7 @@ export function createAppStore(): EnhancedStore {
       requestReducer,
       errorReducer,
       userReducer,
+      modalReducer,
     },
   })
 }
