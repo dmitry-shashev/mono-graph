@@ -52,3 +52,9 @@ pnpm add lodash @types/lodash
 ```bash
 pnpm add use-debounce
 ```
+
+#### Helpers for enums
+
+```bahs
+pnpm add ts-enum-util
+```

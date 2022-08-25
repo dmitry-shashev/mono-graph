@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -126,6 +126,7 @@
     "reselect": "4.1.6",
     "reset-css": "5.0.1",
     "start-server-and-test": "1.14.0",
+    "ts-enum-util": "4.0.2",
     "tslib": "2.4.0",
     "use-debounce": "8.0.3"
   },

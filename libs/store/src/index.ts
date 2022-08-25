@@ -2,6 +2,7 @@ export * from './lib/store'
 
 export * from './lib/hooks/useError'
 export * from './lib/hooks/useActiveRequests'
+export * from './lib/hooks/useModal'
 
 export * from './lib/reducers/requestSlice'
 export * from './lib/reducers/errorSlice'

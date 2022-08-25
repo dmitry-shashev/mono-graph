@@ -94,6 +94,7 @@ specifiers:
   reset-css: 5.0.1
   sass: 1.54.4
   start-server-and-test: 1.14.0
+  ts-enum-util: 4.0.2
   ts-jest: 28.0.8
   ts-node: 10.9.1
   tslib: 2.4.0
@@ -137,6 +138,7 @@ dependencies:
   reselect: 4.1.6
   reset-css: 5.0.1
   start-server-and-test: 1.14.0
+  ts-enum-util: 4.0.2
   tslib: 2.4.0
   use-debounce: 8.0.3_react@18.2.0
 
@@ -17700,6 +17702,10 @@ packages:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
     engines: {node: '>=6.10'}
     dev: true
+
+  /ts-enum-util/4.0.2:
+    resolution: {integrity: sha512-BB5qjvHYgYgOB/CaoA1Cy/B2QNnZ+nVBrJ15VV/AXGWx+AO83k5wgeLOJvkSLoKKavvH/M8Wj4ZbgROjsuYwzw==}
+    dev: false
 
   /ts-invariant/0.10.3:
     resolution: {integrity: sha512-uivwYcQaxAucv1CzRp2n/QdYPo4ILf9VXgH19zEIjFx2EJufV16P0JtJVpYHy89DItG6Kwj2oIUjrcK5au+4tQ==}

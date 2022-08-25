@@ -19,6 +19,7 @@ const MyDocument: FC = () => {
       <body>
         <Main />
         <NextScript />
+        <div id="modal-portal" />
       </body>
     </Html>
   )

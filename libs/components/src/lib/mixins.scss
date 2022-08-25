@@ -11,3 +11,20 @@
     text-decoration: underline;
   }
 }
+
+@keyframes smooth-opacity-keyframes {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@mixin smooth-opacity {
+  animation-name: smooth-opacity-keyframes;
+  animation-duration: 0.2s;
+  animation-delay: 0s;
+}
