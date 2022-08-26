@@ -5,10 +5,10 @@ import styles from './BaseModal.module.scss'
 interface Props {
   children: ReactElement
   isOpened: boolean
-  onBgClick?: () => void
+  closeModal: () => void
 }
 
-const BaseModal: FC<Props> = ({ children, isOpened, onBgClick }) => {
+const BaseModal: FC<Props> = ({ children, isOpened, closeModal }) => {
   if (!isOpened) {
     return null
   }
@@ -20,8 +20,14 @@ const BaseModal: FC<Props> = ({ children, isOpened, onBgClick }) => {
 
   return createPortal(
     <div className={styles.wrap}>
-      <div className={styles.bg} onClick={() => onBgClick?.()} />
-      <div className={styles.content}>{children}</div>
+      <div className={styles.bg} onClick={closeModal} />
+      <div className={styles.content}>
+        <button className={styles.close} type="button" onClick={closeModal}>
+          &times;
+        </button>
+
+        {children}
+      </div>
     </div>,
     portal
   )

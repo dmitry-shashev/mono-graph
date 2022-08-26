@@ -25,4 +25,52 @@
   margin: auto;
   background-color: #fff;
   z-index: 1001;
+  border-radius: 6px;
+  position: relative;
+
+  :global {
+    .modalWindow {
+      width: 400px;
+
+      .modalHeader {
+        padding: 20px;
+        font-size: 22px;
+        font-weight: 600;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .modalContent {
+        padding: 40px 20px;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .modalFooter {
+        padding: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  padding: 0;
+  margin: 6px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }

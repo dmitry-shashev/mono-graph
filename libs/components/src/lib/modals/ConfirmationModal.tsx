@@ -7,13 +7,15 @@ interface Props {
   isOpened: boolean
   title?: string
   description?: string
+  onConfirm: () => void
 }
 
-export const InfoModal: FC<Props> = ({
+export const ConfirmationModal: FC<Props> = ({
   closeModal,
   isOpened,
   title,
   description,
+  onConfirm,
 }) => {
   return (
     <BaseModal isOpened={isOpened} closeModal={closeModal}>
@@ -22,7 +24,10 @@ export const InfoModal: FC<Props> = ({
         {description && <div className="modalContent">{description}</div>}
 
         <div className="modalFooter">
-          <Button onClick={closeModal}>Close</Button>
+          <Button onClick={closeModal}>Cancel</Button>
+          <Button color="primary" variant="contained" onClick={onConfirm}>
+            Confirm
+          </Button>
         </div>
       </div>
     </BaseModal>

@@ -11,6 +11,7 @@ export const ProfileForm: FC<FormProps<User>> = ({
   loading,
   defaultValues = {},
   onSubmit,
+  hideControls,
 }) => {
   const {
     handleSubmit,
@@ -21,7 +22,11 @@ export const ProfileForm: FC<FormProps<User>> = ({
   })
 
   return (
-    <form className={styles.wrap} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      id="profileForm"
+      className={styles.wrap}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <TextField
         inputProps={{
           'aria-label': 'First Name',
@@ -51,16 +56,18 @@ export const ProfileForm: FC<FormProps<User>> = ({
           validate: notAllowedSymbolsValidator,
         })}
       />
-      <Button
-        disabled={loading}
-        variant="contained"
-        color="primary"
-        type="submit"
-        size="large"
-        aria-label="Submit the form"
-      >
-        Submit
-      </Button>
+      {!hideControls && (
+        <Button
+          disabled={loading}
+          variant="contained"
+          color="primary"
+          type="submit"
+          size="large"
+          aria-label="Submit the form"
+        >
+          Submit
+        </Button>
+      )}
     </form>
   )
 }
