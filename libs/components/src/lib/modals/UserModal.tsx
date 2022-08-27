@@ -20,8 +20,11 @@ export const UserModal: FC<Props> = ({ closeModal, isOpened, onSubmit }) => {
         </div>
 
         <div className="modalFooter">
-          <Button onClick={closeModal}>Cancel</Button>
+          <Button arial-label="Cancel Modal" onClick={closeModal}>
+            Cancel
+          </Button>
           <Button
+            aria-label="Confirm Modal"
             type="submit"
             form="profileForm"
             color="primary"

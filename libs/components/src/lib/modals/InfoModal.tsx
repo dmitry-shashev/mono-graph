@@ -18,11 +18,21 @@ export const InfoModal: FC<Props> = ({
   return (
     <BaseModal isOpened={isOpened} closeModal={closeModal}>
       <div className="modalWindow">
-        {title && <div className="modalHeader">{title}</div>}
-        {description && <div className="modalContent">{description}</div>}
+        {title && (
+          <div aria-label="Modal Title" className="modalHeader">
+            {title}
+          </div>
+        )}
+        {description && (
+          <div aria-label="Modal Description" className="modalContent">
+            {description}
+          </div>
+        )}
 
         <div className="modalFooter">
-          <Button onClick={closeModal}>Close</Button>
+          <Button aria-label="Close Modal" onClick={closeModal}>
+            Close
+          </Button>
         </div>
       </div>
     </BaseModal>
