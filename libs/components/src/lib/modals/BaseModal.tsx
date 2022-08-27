@@ -20,9 +20,18 @@ const BaseModal: FC<Props> = ({ children, isOpened, closeModal }) => {
 
   return createPortal(
     <div className={styles.wrap}>
-      <div className={styles.bg} onClick={closeModal} />
+      <div
+        aria-label="Modal Background"
+        className={styles.bg}
+        onClick={closeModal}
+      />
       <div className={styles.content}>
-        <button className={styles.close} type="button" onClick={closeModal}>
+        <button
+          aria-label="Close Modal"
+          className={styles.close}
+          type="button"
+          onClick={closeModal}
+        >
           &times;
         </button>
 
