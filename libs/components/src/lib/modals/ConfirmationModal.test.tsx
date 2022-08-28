@@ -27,7 +27,7 @@ describe('ConfirmationModal', () => {
 
     expect(closeModal).toBeCalledTimes(0)
     expect(onConfirm).toBeCalledTimes(0)
-    await clickByAriaLabel('Cancel Modal')
+    await clickByAriaLabel('Close Confirmation Modal')
     expect(closeModal).toBeCalledTimes(1)
     expect(onConfirm).toBeCalledTimes(0)
     await clickByAriaLabel('Confirm Modal')

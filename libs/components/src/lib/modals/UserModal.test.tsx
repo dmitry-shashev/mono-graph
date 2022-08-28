@@ -24,7 +24,7 @@ describe('UserModal', () => {
     await typeInInputByAriaLabel('Last Name', testUser.lastName)
 
     expect(onSubmit).toBeCalledTimes(0)
-    await clickByAriaLabel('Confirm Modal')
+    await clickByAriaLabel('Submit User Modal')
     expect(onSubmit).toBeCalledTimes(1)
     expect(onSubmit).toBeCalledWith({
       firstName: testUser.firstName,
