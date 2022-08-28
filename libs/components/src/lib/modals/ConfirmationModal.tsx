@@ -19,7 +19,7 @@ export const ConfirmationModal: FC<Props> = ({
 }) => {
   return (
     <BaseModal isOpened={isOpened} closeModal={closeModal}>
-      <div className="modalWindow">
+      <div className="modalWindow" aria-label="Confirmation Modal">
         {title && (
           <div aria-label="Modal Title" className="modalHeader">
             {title}
@@ -32,7 +32,7 @@ export const ConfirmationModal: FC<Props> = ({
         )}
 
         <div className="modalFooter">
-          <Button aria-label="Cancel Modal" onClick={closeModal}>
+          <Button aria-label="Close Confirmation Modal" onClick={closeModal}>
             Cancel
           </Button>
           <Button

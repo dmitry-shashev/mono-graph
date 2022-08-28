@@ -24,7 +24,7 @@ describe('InfoModal', () => {
     expect(ariaLabelContainText('Modal Description', TEST_DESCRIPTION))
 
     expect(closeModal).toBeCalledTimes(0)
-    await clickByAriaLabel('Close Modal')
+    await clickByAriaLabel('Close Info Modal')
     expect(closeModal).toBeCalledTimes(1)
   })
 })
