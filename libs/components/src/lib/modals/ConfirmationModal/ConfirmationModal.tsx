@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import BaseModal from './BaseModal'
+import BaseModal from '../BaseModal'
 import { Button } from '@mui/material'
 
 interface Props {
@@ -7,17 +7,19 @@ interface Props {
   isOpened: boolean
   title?: string
   description?: string
+  onConfirm: () => void
 }
 
-export const InfoModal: FC<Props> = ({
+export const ConfirmationModal: FC<Props> = ({
   closeModal,
   isOpened,
   title,
   description,
+  onConfirm,
 }) => {
   return (
     <BaseModal isOpened={isOpened} closeModal={closeModal}>
-      <div className="modalWindow" aria-label="Info Modal">
+      <div className="modalWindow" aria-label="Confirmation Modal">
         {title && (
           <div aria-label="Modal Title" className="modalHeader">
             {title}
@@ -30,8 +32,16 @@ export const InfoModal: FC<Props> = ({
         )}
 
         <div className="modalFooter">
-          <Button aria-label="Close Info Modal" onClick={closeModal}>
-            Close
+          <Button aria-label="Close Confirmation Modal" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button
+            aria-label="Confirm Modal"
+            color="primary"
+            variant="contained"
+            onClick={onConfirm}
+          >
+            Confirm
           </Button>
         </div>
       </div>
