@@ -1,0 +1,22 @@
+import React from 'react'
+import { render } from '@testing-library/react'
+import { <%= className %>Modal } from './<%= className %>Modal'
+import { clickByAriaLabel } from '@mono-graph/core'
+
+describe('<%= className %>Modal', () => {
+  it('component', async () => {
+    const closeModal = jest.fn()
+
+    render(<div id="modal-portal" />)
+    render(
+      <<%= className %>Modal
+        closeModal={closeModal}
+        isOpened
+      />
+    )
+
+    expect(closeModal).toBeCalledTimes(0)
+    await clickByAriaLabel('Close <%= className %> Modal')
+    expect(closeModal).toBeCalledTimes(1)
+  })
+})
