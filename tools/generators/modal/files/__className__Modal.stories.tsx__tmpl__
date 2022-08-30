@@ -1,0 +1,17 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { <%= className %>Modal } from './<%= className %>Modal'
+
+export default {
+  component: <%= className %>Modal,
+  title: '<%= className %> Modal',
+} as ComponentMeta<typeof <%= className %>Modal>
+
+const Template: ComponentStory<typeof <%= className %>Modal> = (args) => (
+  <<%= className %>Modal {...args} />
+)
+
+export const Primary = Template.bind({})
+Primary.args = {
+  closeModal: () => null,
+  isOpened: true,
+}

@@ -1,0 +1,25 @@
+import React, { FC } from 'react'
+import BaseModal from '../BaseModal'
+import { Button } from '@mui/material'
+
+interface Props {
+  closeModal: () => void
+  isOpened: boolean
+}
+
+export const <%= className %>Modal: FC<Props> = ({
+  closeModal,
+  isOpened,
+}) => {
+  return (
+    <BaseModal isOpened={isOpened} closeModal={closeModal}>
+      <div className="modalWindow" aria-label="<%= className %> Modal">
+        <div className="modalFooter">
+          <Button aria-label="Close <%= className %> Modal" onClick={closeModal}>
+            Close
+          </Button>
+        </div>
+      </div>
+    </BaseModal>
+  )
+}
