@@ -1,6 +1,7 @@
 - [x] Add custom hooks
 - [x] Add storybook on the auto-generation
 - [x] Modal windows
+- [ ] Tabs
 - [ ] Form Generators
 - [ ] Extra layouts
 - [ ] Complicated saga flow

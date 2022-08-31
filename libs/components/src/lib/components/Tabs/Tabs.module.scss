@@ -1,0 +1,41 @@
+@import '../../mixins';
+
+$border: 1px solid #9e9e9e;
+$radius: 6px;
+
+.wrap {
+}
+
+.tabsHeaders {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  border-bottom: $border;
+
+  .tabTitle {
+    padding: 10px 20px;
+    margin: 0 0 -1px;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+    border: $border;
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+
+    &.activeTabTitle {
+      font-weight: 600;
+      border-bottom: none;
+    }
+  }
+}
+
+.tabContent {
+  padding: 20px 0 0;
+  display: none;
+
+  &.activeTab {
+    display: block;
+    @include smooth-opacity();
+  }
+}
