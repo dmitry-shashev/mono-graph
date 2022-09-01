@@ -16,6 +16,8 @@ export const Tabs: FC<Props> = ({ currentIndex = 0, children, titles }) => {
       <div className={styles.tabsHeaders}>
         {titles.map((title, index) => (
           <button
+            key={title}
+            aria-label={`Go to tab - ${title}`}
             onClick={() => setSelectedIndex(index)}
             type="button"
             className={clsx(styles.tabTitle, {
@@ -29,9 +31,9 @@ export const Tabs: FC<Props> = ({ currentIndex = 0, children, titles }) => {
 
       {React.Children.map(children, (elem, index) => (
         <div
-          className={clsx(styles.tabContent, {
-            [styles.activeTab ?? 0]: selectedIndex === index,
-          })}
+          className={styles.tabContent}
+          hidden={selectedIndex !== index}
+          aria-label={`Tab content for - ${titles[index]}`}
           key={index}
         >
           {elem}

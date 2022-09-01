@@ -58,6 +58,20 @@ export async function ariaLabelNotContainText(
   })
 }
 
+export async function ariaLabelIsVisible(ariaLabel: string): Promise<void> {
+  const elem = screen.getByLabelText(ariaLabel)
+  await waitFor(() => {
+    expect(elem).toBeVisible()
+  })
+}
+
+export async function ariaLabelIsNotVisible(ariaLabel: string): Promise<void> {
+  const elem = screen.getByLabelText(ariaLabel)
+  await waitFor(() => {
+    expect(elem).not.toBeVisible()
+  })
+}
+
 export async function linkIsVisible(
   text: string,
   link: string,
