@@ -32,10 +32,5 @@ $radius: 6px;
 
 .tabContent {
   padding: 20px 0 0;
-  display: none;
-
-  &.activeTab {
-    display: block;
-    @include smooth-opacity();
-  }
+  @include smooth-opacity();
 }
