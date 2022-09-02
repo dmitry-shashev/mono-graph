@@ -4,6 +4,7 @@ enum PagePath {
   DailyProduction = '/daily-production',
   TestWindowHooks = '/test-window-hooks',
   TestModals = '/test-modals',
+  TestTabs = '/test-tabs',
 }
 
 export default PagePath
