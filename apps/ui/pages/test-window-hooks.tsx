@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   LayoutKind,
   Page,
+  useOnClickOutside,
   useWindowKeyUp,
   useWindowResize,
 } from '@mono-graph/core'
@@ -16,6 +17,12 @@ const TestWindowHooksPage: Page = () => {
     setResizeDetected(true)
   })
 
+  const [lastOutsideClick, setLastOutsideClick] = useState<string>('')
+  const buttonRef = useRef(null)
+  useOnClickOutside(buttonRef, (e) => {
+    setLastOutsideClick(`${e.clientX} ${e.clientY}`)
+  })
+
   return (
     <div>
       <div>Last key up: {lastKeyUp}</div>
@@ -25,6 +32,10 @@ const TestWindowHooksPage: Page = () => {
       <div>Last height: {height}</div>
       <br />
       {resizeDetected && <div>Resize Detected</div>}
+      <br />
+      <button type="button" ref={buttonRef}>
+        Click outside on: {lastOutsideClick}
+      </button>
     </div>
   )
 }
