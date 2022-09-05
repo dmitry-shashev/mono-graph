@@ -149,6 +149,12 @@ pnpm add -D @testing-library/jest-dom
 pnpm add -D @testing-library/user-event
 ```
 
+#### Extra types for node
+
+```bash
+pnpm add -D @types/node
+```
+
 #### Each typescript project must contain `tsc` target in `project.json`
 
 > Pay attention - specify the path to the project
