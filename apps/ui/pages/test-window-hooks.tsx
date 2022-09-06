@@ -3,6 +3,7 @@ import {
   LayoutKind,
   Page,
   useOnClickOutside,
+  useTrackActiveWindow,
   useWindowKeyUp,
   useWindowResize,
 } from '@mono-graph/core'
@@ -11,6 +12,16 @@ import PagePath from '../lib/constants/page-path'
 const TestWindowHooksPage: Page = () => {
   const [lastKeyUp, setLastKeyUp] = useState<string>('')
   const [resizeDetected, setResizeDetected] = useState<boolean>(false)
+
+  const [isFocused, setIsFocused] = useState<boolean>(true)
+  useTrackActiveWindow({
+    onFocus: () => {
+      setIsFocused(true)
+    },
+    onBlur: () => {
+      setIsFocused(false)
+    },
+  })
 
   useWindowKeyUp([], (e) => setLastKeyUp(e.key))
   const { width, height } = useWindowResize(() => {
@@ -36,6 +47,7 @@ const TestWindowHooksPage: Page = () => {
       <button type="button" ref={buttonRef}>
         Click outside on: {lastOutsideClick}
       </button>
+      <div>Window is {isFocused ? 'active' : 'inactive'}</div>
     </div>
   )
 }
