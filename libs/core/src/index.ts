@@ -13,6 +13,7 @@ export * from './lib/helpers/type.helper'
 export * from './lib/hooks/useWindowResize'
 export * from './lib/hooks/useWindowKeyUp'
 export * from './lib/hooks/useOnClickOutside'
+export * from './lib/hooks/useTrackActiveWindow'
 
 export * from './lib/_generated/apollo-hooks'
 
