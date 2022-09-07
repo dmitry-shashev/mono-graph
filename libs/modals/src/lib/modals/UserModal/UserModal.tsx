@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import BaseModal from '../BaseModal'
 import { Button } from '@mui/material'
 import { User } from '@mono-graph/core'
-import { ProfileForm } from '../../forms/ProfileForm/ProfileForm'
+import { ProfileForm } from '../../../../../components/src/lib/forms/ProfileForm/ProfileForm'
 
 interface Props {
   closeModal: () => void

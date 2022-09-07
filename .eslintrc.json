@@ -17,7 +17,8 @@
                 "onlyDependOnLibsWithTags": [
                   "libs:components",
                   "libs:core",
-                  "libs:store"
+                  "libs:store",
+                  "libs:modals"
                 ]
               },
               {
@@ -38,6 +39,10 @@
               },
               {
                 "sourceTag": "libs:store",
+                "onlyDependOnLibsWithTags": ["libs:core"]
+              },
+              {
+                "sourceTag": "libs:modals",
                 "onlyDependOnLibsWithTags": ["libs:core"]
               }
             ]

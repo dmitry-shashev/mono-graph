@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { LayoutKind, ModalType, Page, User } from '@mono-graph/core'
 import PagePath from '../lib/constants/page-path'
 import { useModal } from '@mono-graph/store'
-import { ConfirmationModal, InfoModal, UserModal } from '@mono-graph/components'
+import { ConfirmationModal, InfoModal, UserModal } from '@mono-graph/modals'
 
 const TestModalsPage: Page = () => {
   const [newUser, setNewUser] = useState<User | null>(null)

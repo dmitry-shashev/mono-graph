@@ -22,6 +22,7 @@
     "paths": {
       "@mono-graph/components": ["libs/components/src/index.ts"],
       "@mono-graph/core": ["libs/core/src/index.ts"],
+      "@mono-graph/modals": ["libs/modals/src/index.ts"],
       "@mono-graph/store": ["libs/store/src/index.ts"]
     }
   },
