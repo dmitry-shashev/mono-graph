@@ -5,6 +5,7 @@
     "backend": "apps/backend",
     "components": "libs/components",
     "core": "libs/core",
+    "modals": "libs/modals",
     "store": "libs/store",
     "ui": "apps/ui",
     "ui-e2e": "apps/ui-e2e"

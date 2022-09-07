@@ -1,4 +1,4 @@
-@import '../mixins';
+@import '../../../../components/src/lib/mixins';
 
 .wrap {
   @include smooth-opacity;
