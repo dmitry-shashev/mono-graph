@@ -43,7 +43,7 @@
               },
               {
                 "sourceTag": "libs:modals",
-                "onlyDependOnLibsWithTags": ["libs:core"]
+                "onlyDependOnLibsWithTags": ["libs:core", "libs:components"]
               }
             ]
           }

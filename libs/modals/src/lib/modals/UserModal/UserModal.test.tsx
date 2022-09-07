@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { UserModal } from './UserModal'
-import { getTestUser } from '../../../../../components/src/lib/test/test-data'
 import { clickByAriaLabel, typeInInputByAriaLabel } from '@mono-graph/core'
+import { getTestUser } from '../../test/test-data'
 
 describe('UserModal', () => {
   it('component', async () => {
