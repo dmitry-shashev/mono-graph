@@ -2,7 +2,7 @@
 - [x] Add storybook on the auto-generation
 - [x] Modal windows
 - [x] Tabs
-- [ ] Transform modals into the feature module
+- [x] Transform modals into the feature module
 - [ ] Form Generators
 - [ ] Extra layouts
 - [ ] Complicated saga flow
