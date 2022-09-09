@@ -3,7 +3,7 @@
 - [x] Modal windows
 - [x] Tabs
 - [x] Transform modals into the feature module
+- [ ] Auto complete
 - [ ] Form Generators
 - [ ] Extra layouts
-- [ ] Complicated saga flow
 - [ ] RTK Query
