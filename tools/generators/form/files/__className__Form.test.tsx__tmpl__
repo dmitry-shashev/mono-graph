@@ -1,0 +1,27 @@
+import { render } from '@testing-library/react'
+import { <%= className %>Form } from './<%= className %>Form'
+import { clickByAriaLabel, typeInInputByAriaLabel } from '@mono-graph/core'
+
+describe('<%= className %>Form', () => {
+  it('component', async () => {
+    const onSubmit = jest.fn()
+    const newData = '12'
+
+    render(
+      <<%= className %>Form
+        defaultValues={{
+          age: '2',
+        }}
+        onSubmit={(data) => onSubmit(data)}
+      />
+    )
+
+    await typeInInputByAriaLabel('Age', newData)
+
+    // submit and check the form
+    await clickByAriaLabel('Submit the form')
+    expect(onSubmit).toBeCalledWith({
+      age: newData,
+    })
+  })
+})
