@@ -1,0 +1,57 @@
+import React, { FC } from 'react'
+import { FormProps } from '../../interfaces/form-props'
+import { useForm } from 'react-hook-form'
+import { Button, TextField } from '@mui/material'
+import styles from './<%= className %>Form.module.scss'
+import { FIELD_REQUIRED_MESSAGE } from '../form-error-messages'
+
+interface AgeModel {
+  age: string
+}
+
+export const <%= className %>Form: FC<FormProps<AgeModel>> = ({
+  loading,
+  defaultValues = {},
+  onSubmit,
+}) => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<AgeModel>({
+    defaultValues,
+  })
+
+  return (
+    <form
+      id="ageForm"
+      className={styles.wrap}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <TextField
+        inputProps={{
+          'aria-label': 'Age',
+        }}
+        autoFocus
+        label="Age"
+        variant="outlined"
+        disabled={loading}
+        error={!!errors.age}
+        helperText={errors.age?.message}
+        {...register('age', {
+          required: FIELD_REQUIRED_MESSAGE,
+        })}
+      />
+      <Button
+        disabled={loading}
+        variant="contained"
+        color="primary"
+        type="submit"
+        size="large"
+        aria-label="Submit the form"
+      >
+        Submit
+      </Button>
+    </form>
+  )
+}

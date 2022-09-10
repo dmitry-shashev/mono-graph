@@ -1,0 +1,14 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { <%= className %>Form } from './<%= className %>Form'
+
+export default {
+  component: <%= className %>Form,
+  title: '<%= className %>Form',
+} as ComponentMeta<typeof <%= className %>Form>
+
+const Template: ComponentStory<typeof <%= className %>Form> = (args) => (
+  <<%= className %>Form {...args} />
+)
+
+export const Primary = Template.bind({})
+Primary.args = {}

@@ -3,7 +3,7 @@
 - [x] Modal windows
 - [x] Tabs
 - [x] Transform modals into the feature module
+- [x] Form Generators
 - [ ] Auto complete
-- [ ] Form Generators
 - [ ] Extra layouts
 - [ ] RTK Query

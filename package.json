@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.42",
+  "version": "0.0.43",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -16,6 +16,7 @@
     "g-constant": "nx workspace-generator constant",
     "g-service": "nx workspace-generator service",
     "g-modal": "nx workspace-generator modal",
+    "g-form": "nx workspace-generator form",
     "test": "nx run-many --target=test",
     "build": "nx run-many --target=build",
     "e2e": "nx e2e ui-e2e",
