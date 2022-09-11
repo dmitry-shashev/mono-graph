@@ -1,0 +1,15 @@
+.wrap {
+  position: relative;
+  max-width: 240px;
+}
+
+.input {
+  width: 100%;
+}
+
+.select {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}

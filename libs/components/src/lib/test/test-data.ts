@@ -3,6 +3,7 @@ import {
   HourlyEnergyProduction,
   User,
   UserStatus,
+  Value,
 } from '@mono-graph/core'
 import TopNavigationPage from '../interfaces/top-navigation-page'
 
@@ -60,4 +61,36 @@ export function getTestCurrentRealTime(): CurrentRealTime {
     production: 45,
     consumption: 17,
   }
+}
+
+export function getTestPossibleAutocomplete(): Array<Value> {
+  return [
+    {
+      value: 'One',
+    },
+    {
+      value: 'Two',
+    },
+    {
+      value: 'Three',
+    },
+    {
+      value: 'Four',
+    },
+    {
+      value: 'Five',
+    },
+    {
+      value: 'Six',
+    },
+    {
+      value: 'Seven',
+    },
+    {
+      value: 'eight',
+    },
+    {
+      value: 'nine',
+    },
+  ]
 }
