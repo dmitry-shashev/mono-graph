@@ -21,11 +21,7 @@ describe('HourlyEnergyChart', () => {
     const data = getTestHourlyEnergyProduction()
     render(<HourlyEnergyChart data={data} />)
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    await textInTheDocument(data[0].value)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    await textInTheDocument(data[2].value)
+    await textInTheDocument(data[0]!.value)
+    await textInTheDocument(data[2]!.value)
   })
 })

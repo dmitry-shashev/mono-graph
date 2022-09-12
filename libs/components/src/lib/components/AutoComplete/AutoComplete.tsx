@@ -101,6 +101,7 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         autoFocus
+        aria-label="Autocomplete text input"
         type="text"
       />
 
@@ -111,6 +112,7 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
           value={selected?.value}
           onChange={onSelectChange}
           size={4}
+          aria-label="Autocomplete dropdown"
         >
           {possibleFiltered.map((elem) => (
             <option key={String(elem.label ?? elem.value)} value={elem.value}>
