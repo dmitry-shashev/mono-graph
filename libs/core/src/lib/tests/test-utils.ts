@@ -1,4 +1,4 @@
-import { waitFor } from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -112,6 +112,16 @@ export async function typeInInputByAriaLabel(
   }
 }
 
+export async function inputHasValue(
+  arialLabel: string,
+  value: string
+): Promise<void> {
+  const elem = screen.getByLabelText(arialLabel)
+  await waitFor(() => {
+    expect(elem).toHaveValue(value)
+  })
+}
+
 export function clickByAriaLabel(
   ariaLabel: string,
   position = 0
@@ -121,6 +131,22 @@ export function clickByAriaLabel(
     throw new Error('Click by aria label selector is wrong')
   }
   return userEvent.click(elements[position]!)
+}
+
+export function blurByAriaLabel(ariaLabel: string, position = 0): void {
+  const elements = screen.getAllByLabelText(ariaLabel)
+  if (!elements[position]) {
+    throw new Error('Blur by aria label selector is wrong')
+  }
+  fireEvent.blur(elements[position]!)
+}
+
+export function focusByAriaLabel(ariaLabel: string, position = 0): void {
+  const elements = screen.getAllByLabelText(ariaLabel)
+  if (!elements[position]) {
+    throw new Error('Focus by aria label selector is wrong')
+  }
+  fireEvent.focus(elements[position]!)
 }
 
 export function clickByRole(roleName: string, position = 0): Promise<void> {
