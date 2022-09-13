@@ -1,14 +1,23 @@
-import React, { FC, useId, useState } from 'react'
+import React, { FC, useEffect, useId, useState } from 'react'
 import styles from './AutoComplete.module.scss'
 import { StrHelper, Value } from '@mono-graph/core'
 
 interface Props {
   possible: Array<Value>
   selected?: Value | undefined
+  placeholder?: string
+  disabled?: boolean
   onChange: (newValue: Value | undefined) => void
 }
 
-export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
+export const AutoComplete: FC<Props> = ({
+  possible,
+  selected,
+  placeholder,
+  disabled,
+  onChange,
+}) => {
+  const inputId = useId()
   const selectId = useId()
   const [inputValue, setInputValue] = useState<string>(
     String(selected?.value ?? '')
@@ -16,6 +25,14 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
   const [showSelect, setShowSelect] = useState<boolean>(false)
   const [shouldApplyFiltration, setShouldApplyFiltration] =
     useState<boolean>(false)
+
+  useEffect(() => {
+    if (!selected?.value) {
+      setInputValue('')
+    } else {
+      setInputValue(String(selected?.label ?? selected?.value ?? ''))
+    }
+  }, [selected])
 
   // filtered data
   let possibleFiltered = possible
@@ -27,10 +44,24 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
   const showSelectFinal = showSelect && possibleFiltered.length > 0
 
   const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const found = possible.find((v) => v.value === e.target.value)
+    const found = possible.find(
+      (v) => String(v.value) === String(e.target.value)
+    )
     setShowSelect(false)
-    setInputValue(String(found?.value ?? ''))
-    onChange(found)
+    if (found?.value) {
+      onChange(found)
+    } else {
+      onChange(undefined)
+    }
+  }
+
+  const onSelectBlur = (e: React.FocusEvent<HTMLSelectElement>): void => {
+    // ignore for select
+    if (e.relatedTarget?.id === inputId) {
+      return
+    }
+    setShowSelect(false)
+    setInputValue(String(selected?.value ?? ''))
   }
 
   const onInputFocus = (): void => {
@@ -40,18 +71,25 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
 
   const onInputKeyUp = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === 'Enter' && showSelectFinal) {
-      const valueToSet = possibleFiltered[0]
-      setInputValue(String(valueToSet?.value ?? ''))
+      const valueToSet = possibleFiltered.find((v) => v.value)
       setShowSelect(false)
+      // we have to run it - because onChange does not work in case of
+      // selecting the same value for the second time
+      setInputValue(String(valueToSet?.label ?? selected?.value ?? ''))
       onChange(valueToSet)
       return
     }
 
     if (e.key === 'Escape') {
-      setInputValue(String(selected?.value ?? ''))
+      setInputValue(String(selected?.label ?? selected?.value ?? ''))
       setShowSelect(false)
       return
     }
+
+    // TODO: add arrow navigation
+    // if (e.key === 'ArrowDown') {
+    //   return
+    // }
 
     setShouldApplyFiltration(true)
 
@@ -73,16 +111,15 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
     }
     // also if the user input "two" instead of "Two"
     const found = possible.find((v) =>
-      StrHelper.isSubstring(String(v.value ?? ''), inputValue)
+      StrHelper.isSubstring(String(v.label ?? v.value ?? ''), inputValue)
     )
     if (found) {
-      setInputValue(String(found?.value ?? ''))
       setShowSelect(false)
       onChange(found)
       return
     }
     // simple reset
-    setInputValue(String(selected?.value ?? ''))
+    setInputValue(String(selected?.label ?? selected?.value ?? ''))
   }
 
   const onInputClick = (): void => {
@@ -90,9 +127,19 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
     setShowSelect(true)
   }
 
+  // determine the placeholder
+  let finalPlaceholder = placeholder
+  if (!placeholder) {
+    const foundEmpty = possible.find((v) => !v.value)
+    if (foundEmpty) {
+      finalPlaceholder = String(foundEmpty.label ?? foundEmpty.value)
+    }
+  }
+
   return (
     <div className={styles.wrap}>
       <input
+        id={inputId}
         onClick={onInputClick}
         onFocus={onInputFocus}
         onBlur={onInputBlur}
@@ -100,8 +147,10 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
         className={styles.input}
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        autoFocus
+        disabled={disabled}
+        placeholder={finalPlaceholder}
         aria-label="Autocomplete text input"
+        autoComplete="off"
         type="text"
       />
 
@@ -111,6 +160,7 @@ export const AutoComplete: FC<Props> = ({ possible, selected, onChange }) => {
           className={styles.select}
           value={selected?.value}
           onChange={onSelectChange}
+          onBlur={onSelectBlur}
           size={4}
           aria-label="Autocomplete dropdown"
         >
