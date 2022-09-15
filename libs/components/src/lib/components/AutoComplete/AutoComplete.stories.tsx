@@ -10,11 +10,28 @@ export default {
 } as ComponentMeta<typeof AutoComplete>
 
 const Template: ComponentStory<typeof AutoComplete> = (args) => {
-  const [value, setValue] = useState<Value | undefined>()
+  const [value, setValue] = useState<Value | undefined>(args.selected)
   return <AutoComplete {...args} selected={value} onChange={setValue} />
 }
 
+const possibleData = getTestPossibleAutocomplete()
+
 export const Primary = Template.bind({})
+Primary.storyName = 'Base variant'
 Primary.args = {
-  possible: getTestPossibleAutocomplete(),
+  placeholder: 'Enter some data',
+  possible: possibleData,
+}
+
+export const OneVariant = Template.bind({})
+OneVariant.storyName = 'With one value'
+OneVariant.args = {
+  possible: [possibleData[0]!],
+}
+
+export const WithSelected = Template.bind({})
+WithSelected.storyName = 'With Selected'
+WithSelected.args = {
+  possible: possibleData,
+  selected: possibleData[2]!,
 }
