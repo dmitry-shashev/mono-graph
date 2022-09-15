@@ -66,6 +66,10 @@ export function getTestCurrentRealTime(): CurrentRealTime {
 export function getTestPossibleAutocomplete(): Array<Value> {
   return [
     {
+      label: 'Choose ...',
+      value: '',
+    },
+    {
       value: 'One',
     },
     {

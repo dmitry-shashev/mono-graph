@@ -31,19 +31,19 @@ describe('AutoComplete', () => {
     // open on the first try - see all list
     focusByAriaLabel(INPUT_ARIA_LABEL)
     await ariaLabelInTheDocument(SELECT_ARIA_LABEL)
-    await textInTheDocument(String(possible[0]!.value))
     await textInTheDocument(String(possible[1]!.value))
+    await textInTheDocument(String(possible[2]!.value))
 
     // try to change the input
-    await typeInInputByAriaLabel(INPUT_ARIA_LABEL, String(possible[2]!.value))
+    await typeInInputByAriaLabel(INPUT_ARIA_LABEL, String(possible[3]!.value))
     await ariaLabelInTheDocument(SELECT_ARIA_LABEL)
-    await textNotInTheDocument(String(possible[0]!.value))
     await textNotInTheDocument(String(possible[1]!.value))
-    await textInTheDocument(String(possible[2]!.value))
+    await textNotInTheDocument(String(possible[2]!.value))
+    await textInTheDocument(String(possible[3]!.value))
 
     // on blur functionality
     blurByAriaLabel(INPUT_ARIA_LABEL)
-    await inputHasValue(INPUT_ARIA_LABEL, String(possible[2]!.value))
+    await inputHasValue(INPUT_ARIA_LABEL, String(possible[3]!.value))
     await typeInInputByAriaLabel(INPUT_ARIA_LABEL, String(possible[0]!.value))
     blurByAriaLabel(INPUT_ARIA_LABEL)
     await inputHasValue(INPUT_ARIA_LABEL, String(possible[0]!.value))

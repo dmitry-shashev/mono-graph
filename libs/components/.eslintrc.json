@@ -13,6 +13,13 @@
     {
       "files": ["*.js", "*.jsx"],
       "rules": {}
+    },
+
+    {
+      "files": ["*.stories.tsx", "*.test.tsx"],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off"
+      }
     }
   ]
 }
