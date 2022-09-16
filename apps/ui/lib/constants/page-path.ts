@@ -5,6 +5,7 @@ enum PagePath {
   TestWindowHooks = '/test-window-hooks',
   TestModals = '/test-modals',
   TestTabs = '/test-tabs',
+  TestAutocomplete = '/test-autocomplete',
 }
 
 export default PagePath

@@ -1,4 +1,4 @@
-import { LayoutKind, PageMeta, User, UserStatus } from '@mono-graph/core'
+import { LayoutKind, PageMeta, User, UserStatus, Value } from '@mono-graph/core'
 
 export function getTestPageMeta(): PageMeta {
   return {
@@ -17,4 +17,40 @@ export function getTestUser(): User {
     lastName: 'Testerov',
     status: UserStatus.Active,
   }
+}
+
+export function getTestAutocompleteVariants(): Array<Value> {
+  return [
+    {
+      label: 'Choose ...',
+    },
+    {
+      label: 'Red',
+      value: '1',
+    },
+    {
+      label: 'Green',
+      value: '2',
+    },
+    {
+      label: 'Blue',
+      value: '3',
+    },
+    {
+      label: 'Purple',
+      value: '4',
+    },
+    {
+      label: 'White',
+      value: '5',
+    },
+    {
+      label: 'Yellow',
+      value: '6',
+    },
+    {
+      label: 'Grey',
+      value: '7',
+    },
+  ]
 }
