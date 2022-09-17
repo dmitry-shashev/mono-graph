@@ -12,7 +12,9 @@ describe('useWindowResize', () => {
       window.dispatchEvent(new Event('resize'))
     })
     expect(callback).toBeCalledTimes(0)
-    jest.advanceTimersByTime(3000)
+    act(() => {
+      jest.advanceTimersByTime(3000)
+    })
     expect(callback).toBeCalledTimes(1)
   })
 })
