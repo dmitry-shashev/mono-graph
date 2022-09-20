@@ -39,4 +39,14 @@ describe('str.helper', () => {
     expect(StrHelper.isSubstringInObj(data, ['color', 'name'], 'ed')).toBe(true)
     expect(StrHelper.isSubstringInObj(data, ['color', 'name'], 'm')).toBe(false)
   })
+
+  it('buildOddEvenFunc', () => {
+    const func = StrHelper.buildOddEvenFunc()
+    expect(func()).toBe('formRowOdd')
+    expect(func()).toBe('formRowEven')
+    expect(func()).toBe('formRowOdd')
+    expect(func(true)).toBe(undefined)
+    expect(func(true)).toBe(undefined)
+    expect(func()).toBe('formRowEven')
+  })
 })
