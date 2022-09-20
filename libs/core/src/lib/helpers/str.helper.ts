@@ -1,5 +1,7 @@
 import { encode, decode } from 'js-base64'
 
+type OddEvenFunc = (isHidden?: boolean) => string | undefined
+
 export abstract class StrHelper {
   public static base64Encode(str: unknown): string {
     if (!str) {
@@ -35,5 +37,21 @@ export abstract class StrHelper {
     return fields.some((field) => {
       return StrHelper.isSubstring(String(data[field]), sub)
     })
+  }
+
+  // the main problem - if we hide rows - we can not use selectors for odd/even
+  // because in any case they see hidden - even if we use the class selector
+  // so for these cases - we can render `null` in the child component - but if
+  // we are using ref - we will get `null` instead of the ref even when the component
+  // will start rendering again,
+  // or we can use this function and add classes programmatically
+  public static buildOddEvenFunc(baseValue = 0): OddEvenFunc {
+    let state = baseValue
+    return (isHidden = false) => {
+      if (isHidden) {
+        return
+      }
+      return state++ % 2 ? 'formRowEven' : 'formRowOdd'
+    }
   }
 }
