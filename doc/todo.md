@@ -4,6 +4,6 @@
 - [x] Tabs
 - [x] Transform modals into the feature module
 - [x] Form Generators
-- [ ] Auto complete
+- [ ] Auto complete - e2e
 - [ ] Extra layouts
 - [ ] RTK Query

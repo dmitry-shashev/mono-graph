@@ -54,4 +54,35 @@ export abstract class StrHelper {
       return state++ % 2 ? 'formRowEven' : 'formRowOdd'
     }
   }
+
+  public static capitalize(value: string): string {
+    if (!value) {
+      return ''
+    }
+    return value.charAt(0).toUpperCase() + value.slice(1)
+  }
+
+  public static toHumanBytes(bytes: number, emptyResult = '0 bytes'): string {
+    const precision = 2
+
+    if (bytes >= 1099511627776) {
+      return `${(bytes / 1099511627776).toFixed(precision)} TB`
+    }
+    if (bytes >= 1073741824) {
+      return `${(bytes / 1073741824).toFixed(precision)} GB`
+    }
+    if (bytes >= 1048576) {
+      return `${(bytes / 1048576).toFixed(precision)} MB`
+    }
+    if (bytes >= 1024) {
+      return `${(bytes / 1024).toFixed(precision)} KB`
+    }
+    if (bytes > 1) {
+      return `${bytes} bytes`
+    }
+    if (bytes === 1) {
+      return `${bytes} byte`
+    }
+    return emptyResult
+  }
 }
