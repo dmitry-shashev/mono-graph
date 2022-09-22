@@ -49,4 +49,15 @@ describe('str.helper', () => {
     expect(func(true)).toBe(undefined)
     expect(func()).toBe('formRowEven')
   })
+
+  it('toHumanBytes', () => {
+    expect(StrHelper.toHumanBytes(2299511627776)).toBe('2.09 TB')
+    expect(StrHelper.toHumanBytes(3073741824)).toBe('2.86 GB')
+    expect(StrHelper.toHumanBytes(7048576)).toBe('6.72 MB')
+    expect(StrHelper.toHumanBytes(6000)).toBe('5.86 KB')
+    expect(StrHelper.toHumanBytes(12, 'empty')).toBe('12 bytes')
+    expect(StrHelper.toHumanBytes(1)).toBe('1 byte')
+    expect(StrHelper.toHumanBytes(0)).toBe('0 bytes')
+    expect(StrHelper.toHumanBytes(0, 'empty')).toBe('empty')
+  })
 })
