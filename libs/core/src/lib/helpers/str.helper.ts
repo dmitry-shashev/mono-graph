@@ -55,13 +55,6 @@ export abstract class StrHelper {
     }
   }
 
-  public static capitalize(value: string): string {
-    if (!value) {
-      return ''
-    }
-    return value.charAt(0).toUpperCase() + value.slice(1)
-  }
-
   public static toHumanBytes(bytes: number, emptyResult = '0 bytes'): string {
     const precision = 2
 
