@@ -1,4 +1,5 @@
 import { $enum } from 'ts-enum-util'
+import { Sort } from '../constants/sort'
 
 export abstract class TypeHelper {
   public static getEnumValues<T extends Record<keyof T, string | number>>(
@@ -23,5 +24,16 @@ export abstract class TypeHelper {
     enumKind: T
   ): Array<number> {
     return TypeHelper.getEnumValues(enumKind).map(Number)
+  }
+
+  public static parseSortFromQuery(param: unknown): Sort {
+    const paramToCheck = String(param)
+    if (paramToCheck === Sort.Asc) {
+      return Sort.Asc
+    }
+    if (paramToCheck === Sort.Desc) {
+      return Sort.Desc
+    }
+    return Sort.Default
   }
 }
