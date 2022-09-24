@@ -5,4 +5,9 @@ export interface Value {
   readonly defaultSelected?: boolean
   readonly options?: Array<Value>
   readonly type?: number
+  readonly color?: string
+  readonly required?: boolean
 }
+
+export type ValueMatrix = Array<Array<Value>>
+export type ValueMatrixReadOnly = ReadonlyArray<ReadonlyArray<Value>>
