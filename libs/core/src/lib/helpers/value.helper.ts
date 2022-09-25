@@ -27,7 +27,7 @@ export abstract class ValueHelper {
     const result: Array<Value> = []
 
     baseArr.forEach((g) => {
-      // fot the single element
+      // for the single element
       if (!g.options?.length) {
         if (filteredArr.find((vv) => vv.value === g.value)) {
           result.push(g)
@@ -35,7 +35,7 @@ export abstract class ValueHelper {
         }
       }
 
-      // for options - if at leas one element was found
+      // for options - if at least one element was found
       const elemToAdd: Value = {
         ...g,
         options: [],
@@ -46,7 +46,7 @@ export abstract class ValueHelper {
         }
       })
       if (elemToAdd.options?.length) {
-        result.push(g)
+        result.push(elemToAdd)
       }
     })
 
@@ -61,7 +61,7 @@ export abstract class ValueHelper {
     baseArr.forEach((elem) => {
       result.push({
         ...elem,
-        options: [],
+        options: undefined,
       })
       if (elem.options?.length) {
         result.push(...elem.options)
