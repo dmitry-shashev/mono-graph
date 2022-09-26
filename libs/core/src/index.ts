@@ -9,6 +9,7 @@ export * from './lib/helpers/str.helper'
 export * from './lib/helpers/obj.helper'
 export * from './lib/helpers/window.helper'
 export * from './lib/helpers/type.helper'
+export * from './lib/helpers/page.helper'
 
 export * from './lib/hooks/useWindowResize'
 export * from './lib/hooks/useWindowKeyUp'
