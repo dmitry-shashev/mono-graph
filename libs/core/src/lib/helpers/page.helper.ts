@@ -5,6 +5,11 @@ export abstract class PageHelper {
     if (!id) {
       return path
     }
-    return path.replace('[id]', StrHelper.base64Encode(id))
+    return path.replace('[id]', StrHelper.encodeURLParam(id))
+  }
+
+  public static buildIdUrl(url: string, id: string): string {
+    const idEnc = StrHelper.encodeURLParam(id)
+    return `${url}?id=${idEnc}`
   }
 }

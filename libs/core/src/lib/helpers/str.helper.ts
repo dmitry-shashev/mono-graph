@@ -17,6 +17,14 @@ export abstract class StrHelper {
     return decode(String(str))
   }
 
+  public static encodeURLParam(param: string | number): string {
+    return encodeURIComponent(StrHelper.base64Encode(param))
+  }
+
+  public static decodeURLParam(param: string | number): string {
+    return StrHelper.base64Decode(decodeURIComponent(String(param)))
+  }
+
   public static formatMoney(value: number): string {
     return value.toLocaleString('en-US', {
       style: 'currency',
