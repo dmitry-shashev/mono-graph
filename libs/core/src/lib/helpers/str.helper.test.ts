@@ -60,4 +60,14 @@ describe('str.helper', () => {
     expect(StrHelper.toHumanBytes(0)).toBe('0 bytes')
     expect(StrHelper.toHumanBytes(0, 'empty')).toBe('empty')
   })
+
+  it('encodeURLParam', () => {
+    expect(StrHelper.encodeURLParam('aa$=%')).toBe('YWEkPSU%3D')
+    expect(StrHelper.encodeURLParam('')).toBe('')
+  })
+
+  it('decodeURLParam', () => {
+    expect(StrHelper.decodeURLParam('YWEkPSU%3D')).toBe('aa$=%')
+    expect(StrHelper.decodeURLParam('')).toBe('')
+  })
 })
