@@ -8,4 +8,8 @@ describe('page.helper', () => {
     expect(PageHelper.buildUrl('/one')).toBe('/one')
     expect(PageHelper.buildUrl('')).toBe('')
   })
+
+  it('buildIdUrl', () => {
+    expect(PageHelper.buildIdUrl('/123', 'aa')).toBe('/123?id=YWE%3D')
+  })
 })
