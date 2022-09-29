@@ -25,4 +25,14 @@ export abstract class WindowHelper {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     )
   }
+
+  public static openInNewTab(link: string): void {
+    if (!globalThis) {
+      return
+    }
+    const a = document.createElement('a')
+    a.setAttribute('href', link)
+    a.setAttribute('target', '_blank')
+    a.click()
+  }
 }
