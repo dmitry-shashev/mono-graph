@@ -86,4 +86,12 @@ export abstract class StrHelper {
     }
     return emptyResult
   }
+
+  public static buildCombinedLabel(
+    arr: Array<unknown>,
+    delimiter = ' / '
+  ): string {
+    const result = arr.map((v) => String(v ?? '').trim()).filter((v) => !!v)
+    return result.join(delimiter)
+  }
 }

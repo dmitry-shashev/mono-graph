@@ -90,4 +90,16 @@ export abstract class ValueHelper {
 
     return found
   }
+
+  public static buildCombinedLabel(
+    arr: ReadonlyArray<Value | undefined>,
+    field: keyof Value = 'value',
+    delimiter = ' | '
+  ): string {
+    const result: Array<string> = arr
+      .map((v) => String(v?.[field] ?? '').trim())
+      .filter((v) => !!v)
+
+    return result.join(delimiter)
+  }
 }

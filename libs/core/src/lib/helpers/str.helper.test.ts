@@ -1,4 +1,5 @@
 import { StrHelper } from './str.helper'
+import { getTestStrArr } from '../tests/test-data'
 
 describe('str.helper', () => {
   it('base64Encode', () => {
@@ -69,5 +70,15 @@ describe('str.helper', () => {
   it('decodeURLParam', () => {
     expect(StrHelper.decodeURLParam('YWEkPSU%3D')).toBe('aa$=%')
     expect(StrHelper.decodeURLParam('')).toBe('')
+  })
+
+  it('buildCombinedLabel', () => {
+    const data = getTestStrArr()
+    expect(StrHelper.buildCombinedLabel([])).toBe('')
+    expect(StrHelper.buildCombinedLabel(data)).toBe('Rain / Winter / Some')
+    expect(StrHelper.buildCombinedLabel(data, '|')).toBe('Rain|Winter|Some')
+    expect(StrHelper.buildCombinedLabel(['a', '', 'y'])).toBe('a / y')
+
+    expect(data).toEqual(getTestStrArr())
   })
 })
