@@ -1,5 +1,9 @@
 import { ValueHelper } from './value.helper'
-import { getTestGrouped, getTestMatrix } from '../tests/test-data'
+import {
+  getTestGrouped,
+  getTestMatrix,
+  getTestValueArr,
+} from '../tests/test-data'
 
 describe('value.helper', () => {
   it('filterMatrixByArr', () => {
@@ -127,5 +131,20 @@ describe('value.helper', () => {
     )
 
     expect(data).toEqual(getTestGrouped())
+  })
+
+  it('buildCombinedLabel', () => {
+    const data = getTestValueArr()
+    expect(ValueHelper.buildCombinedLabel([])).toBe('')
+    expect(ValueHelper.buildCombinedLabel(data)).toBe('a | b | c')
+    expect(ValueHelper.buildCombinedLabel(data, 'label')).toBe(
+      'One | Two | Three'
+    )
+    expect(ValueHelper.buildCombinedLabel(data, 'color')).toBe('red | green')
+    expect(ValueHelper.buildCombinedLabel(data, 'color', '@')).toBe('red@green')
+
+    expect(ValueHelper.buildCombinedLabel(data, 'type')).toBe('')
+
+    expect(data).toEqual(getTestValueArr())
   })
 })

@@ -79,3 +79,26 @@ export function getTestMatrix(): ValueMatrix {
     ],
   ]
 }
+
+export function getTestValueArr(): Array<Value> {
+  return [
+    {
+      label: 'One',
+      value: 'a',
+      color: 'red',
+    },
+    {
+      label: 'Two',
+      value: 'b',
+    },
+    {
+      label: 'Three',
+      value: 'c',
+      color: 'green',
+    },
+  ]
+}
+
+export function getTestStrArr(): Array<string> {
+  return ['Rain', 'Winter', 'Some']
+}
