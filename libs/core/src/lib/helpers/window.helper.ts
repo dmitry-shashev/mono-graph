@@ -35,4 +35,24 @@ export abstract class WindowHelper {
     a.setAttribute('target', '_blank')
     a.click()
   }
+
+  public static copyToClipboard(str: string): Promise<void> {
+    return navigator.clipboard.writeText(str)
+  }
+
+  public static pureNavigate(url: string): void {
+    if (!globalThis || !globalThis.location) {
+      return
+    }
+
+    // normalize url
+    const urlValue = url.replace(/^\//, '')
+    let origin = ''
+
+    if (!url.match(/^http/)) {
+      origin = `${globalThis.location.origin}/`
+    }
+
+    globalThis.location.href = `${origin}${urlValue}`
+  }
 }
