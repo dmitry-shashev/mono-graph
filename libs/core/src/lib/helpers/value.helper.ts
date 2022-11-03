@@ -102,4 +102,24 @@ export abstract class ValueHelper {
 
     return result.join(delimiter)
   }
+
+  public static buildSortStringCompare(
+    fieldName: keyof Value = 'label'
+  ): (a: Value, b: Value) => number {
+    return (a, b) => {
+      const ah = String(a[fieldName]).toLowerCase()
+      const bh = String(b[fieldName]).toLowerCase()
+      return ah.localeCompare(bh)
+    }
+  }
+
+  public static buildSortNumberCompare(
+    fieldName: keyof Value = 'label'
+  ): (a: Value, b: Value) => number {
+    return (a, b) => {
+      const ah = Number(a[fieldName])
+      const bh = Number(b[fieldName])
+      return ah - bh
+    }
+  }
 }
