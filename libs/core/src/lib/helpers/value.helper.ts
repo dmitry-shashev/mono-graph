@@ -103,6 +103,26 @@ export abstract class ValueHelper {
     return result.join(delimiter)
   }
 
+  public static searchInGroupedByPureField(
+    valueToFind: unknown,
+    data?: ReadonlyArray<Value>,
+    fieldName: keyof Value = 'value'
+  ): Value | undefined {
+    if (!data) {
+      return undefined
+    }
+    let found: Value | undefined
+    data.forEach((elem) => {
+      if (found) {
+        return
+      }
+      if (elem.options?.find((v) => v[fieldName] === valueToFind)) {
+        found = elem
+      }
+    })
+    return found
+  }
+
   public static buildSortStringCompare(
     fieldName: keyof Value = 'label'
   ): (a: Value, b: Value) => number {
