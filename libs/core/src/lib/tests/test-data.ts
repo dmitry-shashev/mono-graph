@@ -102,3 +102,23 @@ export function getTestValueArr(): Array<Value> {
 export function getTestStrArr(): Array<string> {
   return ['Rain', 'Winter', 'Some']
 }
+
+export function getTestSortArr(): Array<Value> {
+  return [
+    {
+      label: 'a',
+      name: 'bb',
+      value: 3,
+    },
+    {
+      label: 'b',
+      name: 'cc',
+      value: 7,
+    },
+    {
+      label: 'c',
+      name: 'aa',
+      value: 1,
+    },
+  ]
+}
