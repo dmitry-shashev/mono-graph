@@ -2,6 +2,7 @@ import { ValueHelper } from './value.helper'
 import {
   getTestGrouped,
   getTestMatrix,
+  getTestSortArr,
   getTestValueArr,
 } from '../tests/test-data'
 
@@ -146,5 +147,67 @@ describe('value.helper', () => {
     expect(ValueHelper.buildCombinedLabel(data, 'type')).toBe('')
 
     expect(data).toEqual(getTestValueArr())
+  })
+
+  it('buildSortStringCompare', () => {
+    const data = getTestSortArr()
+    const compareNameFunc = ValueHelper.buildSortStringCompare('name')
+    expect([...data].sort(compareNameFunc)).toEqual([
+      {
+        label: 'c',
+        name: 'aa',
+        value: 1,
+      },
+      {
+        label: 'a',
+        name: 'bb',
+        value: 3,
+      },
+      {
+        label: 'b',
+        name: 'cc',
+        value: 7,
+      },
+    ])
+    const compareLabelFunc = ValueHelper.buildSortStringCompare()
+    expect([...data].sort(compareLabelFunc)).toEqual([
+      {
+        label: 'a',
+        name: 'bb',
+        value: 3,
+      },
+      {
+        label: 'b',
+        name: 'cc',
+        value: 7,
+      },
+      {
+        label: 'c',
+        name: 'aa',
+        value: 1,
+      },
+    ])
+  })
+
+  it('buildSortNumberCompare', () => {
+    const data = getTestSortArr()
+    const compareValueFunc = ValueHelper.buildSortNumberCompare('value')
+    expect([...data].sort(compareValueFunc)).toEqual([
+      {
+        label: 'c',
+        name: 'aa',
+        value: 1,
+      },
+      {
+        label: 'a',
+        name: 'bb',
+        value: 3,
+      },
+      {
+        label: 'b',
+        name: 'cc',
+        value: 7,
+      },
+    ])
   })
 })
