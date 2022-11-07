@@ -122,4 +122,42 @@ export abstract class ValueHelper {
       return ah - bh
     }
   }
+
+  public static searchParentInGroupedByPureField(
+    valueToFind: unknown,
+    data?: ReadonlyArray<Value>,
+    fieldName: keyof Value = 'value'
+  ): Value | undefined {
+    if (!data) {
+      return undefined
+    }
+    let found: Value | undefined
+    data.forEach((elem) => {
+      if (found) {
+        return
+      }
+      if (elem.options?.find((v) => v[fieldName] === valueToFind)) {
+        found = elem
+      }
+    })
+    return found
+  }
+
+  public static searchChildInGroupedByPureField(
+    valueToFind: unknown,
+    data?: ReadonlyArray<Value>,
+    fieldName: keyof Value = 'value'
+  ): Value | undefined {
+    if (!data) {
+      return undefined
+    }
+    let found: Value | undefined
+    data.forEach((elem) => {
+      if (found) {
+        return
+      }
+      found = elem.options?.find((v) => v[fieldName] === valueToFind)
+    })
+    return found
+  }
 }
