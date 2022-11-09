@@ -1,3 +1,5 @@
+import * as moment from 'moment/moment'
+
 export abstract class TimeHelper {
   public static getDateLabel(time: Date): string {
     return time.toLocaleDateString('en-US', {
@@ -14,5 +16,23 @@ export abstract class TimeHelper {
       second: '2-digit',
       hour12: false,
     })
+  }
+
+  private static dateToFullLabel(date: Date): string {
+    const dateLabel = TimeHelper.getDateLabel(date)
+    const timeLabel = TimeHelper.getTimeLabel(date)
+    return `${dateLabel}, ${timeLabel}`
+  }
+
+  public static diffInDays(start: Date, end: Date): number {
+    const startMoment = moment.utc(start)
+    const endMoment = moment.utc(end)
+    return Math.abs(startMoment.diff(endMoment, 'days'))
+  }
+
+  public static addPureDays(start: string, days: number): string {
+    const startMoment = moment.utc(start)
+    const result = startMoment.add(days, 'days').toDate()
+    return TimeHelper.dateToFullLabel(result)
   }
 }
