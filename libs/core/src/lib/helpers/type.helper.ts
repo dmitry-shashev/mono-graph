@@ -36,4 +36,22 @@ export abstract class TypeHelper {
     }
     return Sort.Default
   }
+
+  public static toNullableNumber(value: unknown): number | null {
+    if (value === null || value === undefined) {
+      return null
+    }
+    const result = Number(value)
+    if (isNaN(result)) {
+      return null
+    }
+    return result
+  }
+
+  public static toNullableString(value: unknown): string | null {
+    if (value === null || value === undefined) {
+      return null
+    }
+    return String(value)
+  }
 }
