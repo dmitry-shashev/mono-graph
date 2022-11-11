@@ -4,6 +4,18 @@
   "projectType": "library",
   "tags": ["libs:modals"],
   "targets": {
+    "targets": {
+      "build": {
+        "executor": "@nrwl/js:tsc",
+        "outputs": ["{options.outputPath}"],
+        "options": {
+          "outputPath": "dist/libs/modals",
+          "main": "libs/modals/src/index.ts",
+          "tsConfig": "libs/modals/tsconfig.lib.json",
+          "assets": ["libs/modals/*.md"]
+        }
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

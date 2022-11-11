@@ -4,6 +4,16 @@
   "projectType": "library",
   "tags": ["libs:components"],
   "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/components",
+        "main": "libs/components/src/index.ts",
+        "tsConfig": "libs/components/tsconfig.lib.json",
+        "assets": ["libs/components/*.md"]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
