@@ -83,3 +83,20 @@ pnpm nx g @nrwl/next:lib some
 ```bash
     "noPropertyAccessFromIndexSignature": false,
 ```
+
+#### Do the lib buildable
+
+In `project.json`
+
+```bash
+"build": {
+"executor": "@nrwl/js:tsc",
+"outputs": ["{options.outputPath}"],
+"options": {
+   "outputPath": "dist/libs/some",
+   "main": "libs/some/src/index.ts",
+   "tsConfig": "libs/some/tsconfig.lib.json",
+   "assets": ["libs/some/*.md"]
+  }
+},
+```
