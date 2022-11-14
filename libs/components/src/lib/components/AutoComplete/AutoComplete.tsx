@@ -106,7 +106,7 @@ export const AutoComplete: FC<Props> = ({
     // close the select in any case
     setShowSelect(false)
     // if nothing is changed
-    if (selected?.value === inputValue) {
+    if (selected?.label === inputValue) {
       return
     }
     // also if the user input "two" instead of "Two"
