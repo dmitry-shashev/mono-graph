@@ -1,5 +1,6 @@
 import { ValueHelper } from './value.helper'
 import {
+  getGroupedData,
   getTestGrouped,
   getTestMatrix,
   getTestSortArr,
@@ -209,5 +210,51 @@ describe('value.helper', () => {
         value: 7,
       },
     ])
+  })
+
+  it('searchParentInGroupedByPureField', () => {
+    const data = getGroupedData()
+    expect(ValueHelper.searchParentInGroupedByPureField('aa2', data)).toEqual(
+      data[1]
+    )
+    expect(ValueHelper.searchParentInGroupedByPureField('aaa1', data)).toEqual(
+      data[0]
+    )
+    expect(
+      ValueHelper.searchParentInGroupedByPureField('red', data, 'color')
+    ).toEqual(data[0])
+
+    expect(ValueHelper.searchParentInGroupedByPureField('aaa1')).toEqual(
+      undefined
+    )
+    expect(ValueHelper.searchParentInGroupedByPureField('aaa10', data)).toEqual(
+      undefined
+    )
+    expect(
+      ValueHelper.searchParentInGroupedByPureField('aaa1', data, 'type')
+    ).toEqual(undefined)
+  })
+
+  it('searchChildInGroupedByPureField', () => {
+    const data = getGroupedData()
+    expect(ValueHelper.searchChildInGroupedByPureField('aa2', data)).toEqual(
+      data[1]?.options?.[0]
+    )
+    expect(ValueHelper.searchChildInGroupedByPureField('aaa1', data)).toEqual(
+      data[0]?.options?.[1]
+    )
+    expect(
+      ValueHelper.searchChildInGroupedByPureField('red', data, 'color')
+    ).toEqual(data[0]?.options?.[1])
+
+    expect(ValueHelper.searchChildInGroupedByPureField('aaa1')).toEqual(
+      undefined
+    )
+    expect(ValueHelper.searchChildInGroupedByPureField('aaa10', data)).toEqual(
+      undefined
+    )
+    expect(
+      ValueHelper.searchChildInGroupedByPureField('aaa1', data, 'type')
+    ).toEqual(undefined)
   })
 })

@@ -122,3 +122,33 @@ export function getTestSortArr(): Array<Value> {
     },
   ]
 }
+
+export function getGroupedData(): Array<Value> {
+  return [
+    {
+      label: 'a1',
+      value: 'a-one',
+      options: [
+        {
+          label: 'aa1',
+          value: 'aa1',
+        },
+        {
+          label: 'aaa1',
+          value: 'aaa1',
+          color: 'red',
+        },
+      ],
+    },
+    {
+      label: 'a2',
+      value: 'a-two',
+      options: [
+        {
+          label: 'aa2',
+          value: 'aa2',
+        },
+      ],
+    },
+  ]
+}
