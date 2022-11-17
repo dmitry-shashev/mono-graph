@@ -81,4 +81,23 @@ describe('str.helper', () => {
 
     expect(data).toEqual(getTestStrArr())
   })
+
+  it('buildUrlWithGetParams', () => {
+    expect(StrHelper.buildUrlWithGetParams('/some?', {})).toEqual('/some')
+    expect(StrHelper.buildUrlWithGetParams('/some?', { a: 12 })).toEqual(
+      '/some?a=12'
+    )
+    expect(StrHelper.buildUrlWithGetParams('/some', { a: 12 })).toEqual(
+      '/some?a=12'
+    )
+    expect(
+      StrHelper.buildUrlWithGetParams('/some', {
+        a: 12,
+        b: 't1',
+      })
+    ).toEqual('/some?a=12&b=t1')
+    expect(
+      StrHelper.buildUrlWithGetParams('/test', { name: 'one way' })
+    ).toEqual('/test?name=one%20way')
+  })
 })

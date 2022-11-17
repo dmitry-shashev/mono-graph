@@ -94,4 +94,18 @@ export abstract class StrHelper {
     const result = arr.map((v) => String(v ?? '').trim()).filter((v) => !!v)
     return result.join(delimiter)
   }
+
+  public static buildUrlWithGetParams(url: string, params: object): string {
+    const paramsRow = Object.entries(params)
+      .map(
+        ([key, value]) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      )
+      .join('&')
+    const result = url.trim().replace('?', '')
+    if (!paramsRow) {
+      return result
+    }
+    return `${result}?${paramsRow}`
+  }
 }
