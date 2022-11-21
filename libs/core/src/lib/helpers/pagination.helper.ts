@@ -37,4 +37,21 @@ export abstract class PaginationHelper {
       offset: newOffset,
     }
   }
+
+  public static applyPagination<T>(
+    data?: ReadonlyArray<T>,
+    pagination?: Pagination
+  ): Array<T> | undefined {
+    if (!pagination) {
+      return data?.concat([])
+    }
+    return data?.slice(pagination.offset, pagination.offset + pagination.limit)
+  }
+
+  public static isPaginationForbidden(pagination?: Pagination): boolean {
+    if (!pagination) {
+      return true
+    }
+    return pagination.total <= pagination.limit
+  }
 }

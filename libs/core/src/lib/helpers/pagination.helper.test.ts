@@ -2,6 +2,8 @@ import { PaginationHelper } from './pagination.helper'
 import {
   getTestAveragePagination,
   getTestEndPagination,
+  getTestSmallData,
+  getTestSmallPagination,
   getTestStartPagination,
 } from '../tests/test-data'
 
@@ -53,5 +55,38 @@ describe('pagination.helper', () => {
     expect(prevMinPage).toEqual(testMinPage)
 
     expect(prevPage).not.toEqual(testPagination)
+  })
+
+  it('applyPagination', () => {
+    const testData = getTestSmallData()
+    const testPagination = getTestSmallPagination()
+
+    expect(PaginationHelper.applyPagination(testData, testPagination)).toEqual([
+      5, 6,
+    ])
+    expect(PaginationHelper.applyPagination(testData)).toEqual([
+      ...getTestSmallData(),
+    ])
+    expect(PaginationHelper.applyPagination(undefined, testPagination)).toBe(
+      undefined
+    )
+  })
+
+  it('isPaginationForbidden', () => {
+    expect(
+      PaginationHelper.isPaginationForbidden({
+        limit: 10,
+        total: 8,
+        offset: 2,
+      })
+    ).toBe(true)
+    expect(
+      PaginationHelper.isPaginationForbidden({
+        limit: 4,
+        total: 8,
+        offset: 2,
+      })
+    ).toBe(false)
+    expect(PaginationHelper.isPaginationForbidden(undefined)).toBe(true)
   })
 })
