@@ -9,9 +9,10 @@ describe('time.helper', () => {
       '04/09/2021'
     )
   })
+
   it('getTimeLabel', () => {
-    expect(TimeHelper.getTimeLabel(new Date('2022-11-08T19:13:15.632Z'))).toBe(
-      '21:13:15'
-    )
+    expect(
+      TimeHelper.getTimeLabel(new Date('2022-11-08T19:13:15.632Z'), 'Etc/GMT-0')
+    ).toBe('19:13:15')
   })
 })

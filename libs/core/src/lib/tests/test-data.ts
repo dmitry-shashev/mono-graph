@@ -25,6 +25,18 @@ export function getTestEndPagination(): Pagination {
   }
 }
 
+export function getTestSmallPagination(): Pagination {
+  return {
+    limit: 2,
+    offset: 4,
+    total: 8,
+  }
+}
+
+export function getTestSmallData(): Array<number> {
+  return [1, 2, 3, 4, 5, 6, 7, 8]
+}
+
 export function getTestGrouped(): Array<Value> {
   return [
     {

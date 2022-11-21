@@ -7,12 +7,13 @@ export abstract class TimeHelper {
     })
   }
 
-  public static getTimeLabel(time: Date): string {
+  public static getTimeLabel(time: Date, timeZone?: string): string {
     return time.toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
       hour12: false,
+      timeZone,
     })
   }
 
