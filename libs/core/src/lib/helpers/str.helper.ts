@@ -108,4 +108,51 @@ export abstract class StrHelper {
     }
     return `${result}?${paramsRow}`
   }
+
+  public static limitSentenceWithWords(
+    sentence: string,
+    maxCharactersLength = 20
+  ): string {
+    const words = sentence.split(' ')
+    let result = ''
+    for (const word of words) {
+      const newResult = result + (result ? ' ' : '') + word
+      if (newResult.length > maxCharactersLength) {
+        return `${result}...`
+      }
+      result = newResult
+    }
+    return result
+  }
+
+  public static limitSentenceWithCharacters(
+    sentence: string,
+    maxCharactersLength = 30
+  ): string {
+    if (sentence.length <= maxCharactersLength) {
+      return sentence
+    }
+    return `${sentence.slice(0, maxCharactersLength)}...`
+  }
+
+  public static formatSentenceByLength(
+    sentence: string,
+    maxCharactersLength = 20,
+    delimiter = '<br />'
+  ): string {
+    const words = sentence.split(' ')
+    let result = ''
+    let currentRow = ''
+    for (const word of words) {
+      currentRow = currentRow + (currentRow ? ' ' : '') + word
+      if (currentRow.length > maxCharactersLength) {
+        currentRow = word
+        result += delimiter
+      } else {
+        result += result ? ' ' : ''
+      }
+      result += word
+    }
+    return result
+  }
 }
