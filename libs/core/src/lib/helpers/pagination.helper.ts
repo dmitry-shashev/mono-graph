@@ -55,11 +55,11 @@ export abstract class PaginationHelper {
     return pagination.total <= pagination.limit
   }
 
-  private static getPaginationCurrentPage(pagination: Pagination): number {
-    return pagination.offset / (pagination.limit ?? 1) + 1
+  public static getPaginationCurrentPage(pagination: Pagination): number {
+    return Math.ceil(pagination.offset / (pagination.limit ?? 1) + 1)
   }
 
-  private static getPaginationTotalPages(pagination: Pagination): number {
-    return pagination.total / (pagination.limit ?? 1)
+  public static getPaginationTotalPages(pagination: Pagination): number {
+    return Math.ceil(pagination.total / (pagination.limit ?? 1))
   }
 }

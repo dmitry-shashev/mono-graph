@@ -89,4 +89,45 @@ describe('pagination.helper', () => {
     ).toBe(false)
     expect(PaginationHelper.isPaginationForbidden(undefined)).toBe(true)
   })
+
+  it('getPaginationCurrentPage', () => {
+    expect(
+      PaginationHelper.getPaginationCurrentPage({
+        offset: 0,
+        limit: 4,
+        total: 12,
+      })
+    ).toBe(1)
+    expect(
+      PaginationHelper.getPaginationCurrentPage({
+        offset: 4,
+        limit: 4,
+        total: 12,
+      })
+    ).toBe(2)
+    expect(
+      PaginationHelper.getPaginationCurrentPage({
+        offset: 8,
+        limit: 4,
+        total: 12,
+      })
+    ).toBe(3)
+  })
+
+  it('getPaginationTotalPages', () => {
+    expect(
+      PaginationHelper.getPaginationTotalPages({
+        offset: 8,
+        limit: 4,
+        total: 12,
+      })
+    ).toBe(3)
+    expect(
+      PaginationHelper.getPaginationTotalPages({
+        offset: 8,
+        limit: 4,
+        total: 22,
+      })
+    ).toBe(6)
+  })
 })
