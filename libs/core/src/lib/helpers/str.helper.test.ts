@@ -100,4 +100,28 @@ describe('str.helper', () => {
       StrHelper.buildUrlWithGetParams('/test', { name: 'one way' })
     ).toEqual('/test?name=one%20way')
   })
+
+  it('limitSentenceWithWords', () => {
+    expect(StrHelper.limitSentenceWithWords('one two three four', 10)).toBe(
+      'one two...'
+    )
+    expect(StrHelper.limitSentenceWithWords('one two three four', 100)).toBe(
+      'one two three four'
+    )
+    expect(StrHelper.limitSentenceWithWords('one two three four', 16)).toBe(
+      'one two three...'
+    )
+  })
+
+  it('limitSentenceWithCharacters', () => {
+    expect(
+      StrHelper.limitSentenceWithCharacters('one two three four', 10)
+    ).toBe('one two th...')
+  })
+
+  it('formatSentenceByLength', () => {
+    expect(StrHelper.formatSentenceByLength('123 456 789', 3)).toBe(
+      '123<br />456<br />789'
+    )
+  })
 })
