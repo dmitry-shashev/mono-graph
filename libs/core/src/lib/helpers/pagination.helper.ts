@@ -62,4 +62,12 @@ export abstract class PaginationHelper {
   public static getPaginationTotalPages(pagination: Pagination): number {
     return Math.ceil(pagination.total / (pagination.limit ?? 1))
   }
+
+  public static isFirstPage(pagination: Pagination): boolean {
+    return pagination.offset === 0
+  }
+
+  public static isLastPage(pagination: Pagination): boolean {
+    return pagination.offset + pagination.limit === pagination.total
+  }
 }

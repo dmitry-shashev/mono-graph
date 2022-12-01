@@ -1,5 +1,6 @@
 import { StrHelper } from './str.helper'
 import { getTestStrArr } from '../tests/test-data'
+import { PaginationHelper } from './pagination.helper'
 
 describe('str.helper', () => {
   it('base64Encode', () => {
@@ -123,5 +124,67 @@ describe('str.helper', () => {
     expect(StrHelper.formatSentenceByLength('123 456 789', 3)).toBe(
       '123<br />456<br />789'
     )
+  })
+
+  it('isFirstPage', () => {
+    expect(
+      PaginationHelper.isFirstPage({
+        offset: 0,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(true)
+    expect(
+      PaginationHelper.isFirstPage({
+        offset: 4,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(false)
+    expect(
+      PaginationHelper.isFirstPage({
+        offset: 20,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(false)
+    expect(
+      PaginationHelper.isFirstPage({
+        offset: 100,
+        limit: 40,
+        total: 20,
+      })
+    ).toBe(false)
+  })
+
+  it('isLastPage', () => {
+    expect(
+      PaginationHelper.isLastPage({
+        offset: 16,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(true)
+    expect(
+      PaginationHelper.isLastPage({
+        offset: 0,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(false)
+    expect(
+      PaginationHelper.isLastPage({
+        offset: 20,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(false)
+    expect(
+      PaginationHelper.isLastPage({
+        offset: 100,
+        limit: 4,
+        total: 20,
+      })
+    ).toBe(false)
   })
 })
