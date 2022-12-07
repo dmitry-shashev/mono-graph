@@ -130,4 +130,38 @@ describe('pagination.helper', () => {
       })
     ).toBe(6)
   })
+
+  it('isFirstPage', () => {
+    expect(
+      PaginationHelper.isFirstPage({
+        offset: 4,
+        limit: 2,
+        total: 100,
+      })
+    ).toBe(false)
+    expect(
+      PaginationHelper.isFirstPage({
+        offset: 0,
+        limit: 2,
+        total: 100,
+      })
+    ).toBe(true)
+  })
+
+  it('isLastPage', () => {
+    expect(
+      PaginationHelper.isLastPage({
+        offset: 4,
+        limit: 2,
+        total: 100,
+      })
+    ).toBe(false)
+    expect(
+      PaginationHelper.isLastPage({
+        offset: 98,
+        limit: 2,
+        total: 100,
+      })
+    ).toBe(true)
+  })
 })
