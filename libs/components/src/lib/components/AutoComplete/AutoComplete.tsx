@@ -165,7 +165,10 @@ export const AutoComplete: FC<Props> = ({
           aria-label="Autocomplete dropdown"
         >
           {possibleFiltered.map((elem) => (
-            <option key={String(elem.label ?? elem.value)} value={elem.value}>
+            <option
+              key={`${elem.label}${String(elem.value)}`}
+              value={elem.value}
+            >
               {elem.label ?? elem.value}
             </option>
           ))}
