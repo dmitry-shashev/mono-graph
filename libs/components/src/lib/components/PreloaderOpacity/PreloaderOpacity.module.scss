@@ -1,0 +1,15 @@
+@keyframes loading-opacity-keyframes {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.isLoading {
+  opacity: 0.3;
+  animation-name: loading-opacity-keyframes;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+}
