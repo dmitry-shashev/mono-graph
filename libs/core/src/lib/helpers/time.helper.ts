@@ -17,9 +17,9 @@ export abstract class TimeHelper {
     })
   }
 
-  private static dateToFullLabel(date: Date): string {
+  public static dateToFullLabel(date: Date, timeZone?: string): string {
     const dateLabel = TimeHelper.getDateLabel(date)
-    const timeLabel = TimeHelper.getTimeLabel(date)
+    const timeLabel = TimeHelper.getTimeLabel(date, timeZone)
     return `${dateLabel}, ${timeLabel}`
   }
 
@@ -29,7 +29,7 @@ export abstract class TimeHelper {
     const endHandled: Date = new Date(end)
     endHandled.setHours(0, 0, 0, 0)
     const diff = endHandled.getTime() - startHandled.getTime()
-    return Math.abs(diff / (1000 * 60 * 60 * 24))
+    return Math.ceil(Math.abs(diff / (1000 * 60 * 60 * 24)))
   }
 
   public static addPureDays(start: string, days: number): string {
