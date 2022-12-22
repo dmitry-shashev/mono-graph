@@ -18,4 +18,17 @@ export abstract class ArrHelper {
     const sum = ArrHelper.sum(arr)
     return sum === 0
   }
+
+  public static addUnique<T>(
+    value: T,
+    arr: ReadonlyArray<T>,
+    compareFunc = (a: T, b: T) => a === b
+  ): Array<T> {
+    const result: Array<T> = [...arr]
+    // add if not found
+    if (!result.find((v) => compareFunc(v, value))) {
+      result.push(value)
+    }
+    return result
+  }
 }
