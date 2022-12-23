@@ -6,7 +6,7 @@ import { Tabs } from '@mono-graph/components'
 const TestTabsPage: Page = () => {
   return (
     <div>
-      <Tabs titles={['Tab 1', 'Tab 2', 'Tab 3']} currentIndex={1}>
+      <Tabs titles={['Tab 1', 'Tab 2', 'Tab 3']} currentTab={1}>
         <div>Some tab 1</div>
         <div>Some tab 2</div>
         <div>Some tab 3</div>

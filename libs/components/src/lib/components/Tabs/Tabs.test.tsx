@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement, useState } from 'react'
 import { render } from '@testing-library/react'
 import { Tabs } from './Tabs'
 import {
@@ -8,15 +8,20 @@ import {
   clickByAriaLabel,
 } from '@mono-graph/core'
 
+function Test(): ReactElement {
+  const [tab, setTab] = useState<number>(1)
+  return (
+    <Tabs titles={['1', '2', '3']} currentTab={tab} onTabChange={setTab}>
+      <div aria-label="First" />
+      <div aria-label="Second" />
+      <div aria-label="Third" />
+    </Tabs>
+  )
+}
+
 describe('Tabs', () => {
   it('component', async () => {
-    render(
-      <Tabs titles={['1', '2', '3']} currentIndex={1}>
-        <div aria-label="First" />
-        <div aria-label="Second" />
-        <div aria-label="Third" />
-      </Tabs>
-    )
+    render(<Test />)
 
     await ariaLabelInTheDocument('First')
     await ariaLabelInTheDocument('Second')
