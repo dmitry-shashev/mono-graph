@@ -18,7 +18,7 @@ Remove `.prettierrc` and add into `package.json`
     "bracketSpacing": true
   },
   "engines": {
-    "node": ">=16.16.0"
+    "node": ">=18.12.1"
   },
   "packageManager": "pnpm@7.5.2"
 ```

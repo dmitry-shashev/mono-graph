@@ -1,4 +1,4 @@
-FROM node:16.16.0
+FROM node:18.12.1
 SHELL ["/bin/bash", "-c"]
 EXPOSE 4200 3333
 

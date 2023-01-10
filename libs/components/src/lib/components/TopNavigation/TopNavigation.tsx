@@ -17,14 +17,13 @@ export const TopNavigation: FC<Props> = ({ pages, user }) => {
         <ul className={styles.navList}>
           {pages.map(({ label, path, isActive }) => (
             <li key={path}>
-              <Link href={path}>
-                <a
-                  className={clsx(styles.link, {
-                    [styles.active ?? '']: isActive,
-                  })}
-                >
-                  {label}
-                </a>
+              <Link
+                href={path}
+                className={clsx(styles.link, {
+                  [styles.active ?? '']: isActive,
+                })}
+              >
+                {label}
               </Link>
             </li>
           ))}
