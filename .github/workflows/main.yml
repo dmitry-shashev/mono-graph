@@ -12,7 +12,7 @@ jobs:
           version: 7.5.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.16
+          node-version: 18.12.1
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm tsc
@@ -28,7 +28,7 @@ jobs:
           version: 7.5.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.16
+          node-version: 18.12.1
           cache: 'pnpm'
       - run: pnpm install --ignore-scripts --frozen-lockfile
       - run: pnpm build
@@ -46,7 +46,7 @@ jobs:
           version: 7.5.2
       - uses: actions/setup-node@v3
         with:
-          node-version: 16.16
+          node-version: 18.12.1
           cache: 'pnpm'
       - run: pnpm install
       - run: pnpm test

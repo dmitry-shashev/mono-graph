@@ -1,3 +1,5 @@
+import { utc } from 'moment'
+
 export abstract class TimeHelper {
   public static getDateLabel(time: Date): string {
     return time.toLocaleDateString('en-US', {
@@ -24,12 +26,9 @@ export abstract class TimeHelper {
   }
 
   public static diffInDays(start: Date, end: Date): number {
-    const startHandled: Date = new Date(start)
-    startHandled.setHours(0, 0, 0, 0)
-    const endHandled: Date = new Date(end)
-    endHandled.setHours(0, 0, 0, 0)
-    const diff = endHandled.getTime() - startHandled.getTime()
-    return Math.ceil(Math.abs(diff / (1000 * 60 * 60 * 24)))
+    const startMoment = utc(start)
+    const endMoment = utc(end)
+    return Math.abs(startMoment.diff(endMoment, 'days'))
   }
 
   public static addPureDays(start: string, days: number): string {
