@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.105",
+  "version": "0.0.106",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
@@ -68,6 +68,7 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
+    "@types/react-image-gallery": "1.2.0",
     "@types/testing-library__jest-dom": "5.14.5",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
@@ -122,6 +123,7 @@
     "react-easy-diagram": "0.11.2",
     "react-google-charts": "4.0.0",
     "react-hook-form": "7.41.5",
+    "react-image-gallery": "1.2.11",
     "react-redux": "8.0.5",
     "react-toastify": "9.1.1",
     "redux-saga": "1.2.2",
