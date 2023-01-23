@@ -1,0 +1,90 @@
+.wrap {
+  border: var(--block-border);
+  margin: 4px;
+
+  input[type='checkbox'] {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: center;
+  padding: 4px 8px;
+  background-color: #0a246a;
+  color: #fff;
+  font-weight: 700;
+
+  .labelWrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+
+    .label {
+      vertical-align: center;
+      display: flex;
+      margin: auto;
+    }
+  }
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  height: 274px;
+  overflow-x: hidden;
+
+  .contentRow {
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--background-dark-light-gray);
+    }
+  }
+}
+
+.singleMod {
+  .contentWrap {
+    .contentRow {
+      &.contentRowSelected {
+        background-color: var(--background-dark-gray) !important;
+      }
+    }
+  }
+}
+
+.filterInput {
+  max-width: 100px;
+}
+
+.searchWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.detailsBtn {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border: var(--block-border);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: #fff;
+}
