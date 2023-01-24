@@ -20,6 +20,17 @@ export abstract class ValueHelper {
     return result
   }
 
+  public static includes(
+    arr: ReadonlyArray<Value>,
+    elem?: Value,
+    field: keyof Value = 'value'
+  ): boolean {
+    if (!elem) {
+      return false
+    }
+    return arr.map((v) => String(v[field])).includes(String(elem[field]))
+  }
+
   public static filterGroupedByArr(
     baseArr: ReadonlyArray<Value>,
     filteredArr: ReadonlyArray<Value>
@@ -159,5 +170,9 @@ export abstract class ValueHelper {
       found = elem.options?.find((v) => v[fieldName] === valueToFind)
     })
     return found
+  }
+
+  public static labelSelector(v: Value): string {
+    return v.label ?? ''
   }
 }

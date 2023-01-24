@@ -12,6 +12,7 @@ export * from './lib/helpers/type.helper'
 export * from './lib/helpers/page.helper'
 export * from './lib/helpers/time.helper'
 export * from './lib/helpers/arr.helper'
+export * from './lib/helpers/value.helper'
 
 export * from './lib/hooks/useWindowResize'
 export * from './lib/hooks/useWindowKeyUp'

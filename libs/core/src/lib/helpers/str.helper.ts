@@ -155,4 +155,16 @@ export abstract class StrHelper {
     }
     return result
   }
+
+  public static applyFilterToCollection<T>(
+    arr: ReadonlyArray<T>,
+    search: string,
+    selector: (v: T) => string
+  ): Array<T> {
+    const valueToFind = search.trim()
+    if (!valueToFind) {
+      return [...arr]
+    }
+    return arr.filter((v) => StrHelper.isSubstring(selector(v), search))
+  }
 }
