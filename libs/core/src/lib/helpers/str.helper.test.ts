@@ -187,4 +187,33 @@ describe('str.helper', () => {
       })
     ).toBe(false)
   })
+
+  it('applyFilterToCollection', () => {
+    const getData = (): Array<{ p: string; t?: string }> => [
+      { p: 'green day' },
+      { p: 'red sky' },
+      { p: 'green sky' },
+    ]
+    const data = getData()
+    const selector = (v: { p: string }): string => v.p
+
+    expect(StrHelper.applyFilterToCollection(data, 'yellow', selector)).toEqual(
+      []
+    )
+
+    expect(StrHelper.applyFilterToCollection(data, 'sky', selector)).toEqual([
+      { p: 'red sky' },
+      { p: 'green sky' },
+    ])
+
+    expect(
+      StrHelper.applyFilterToCollection(
+        data,
+        'sky',
+        (v: { t?: string }) => v.t ?? ''
+      )
+    ).toEqual([])
+
+    expect(data).toEqual(getData())
+  })
 })
