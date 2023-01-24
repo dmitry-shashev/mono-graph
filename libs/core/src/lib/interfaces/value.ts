@@ -7,6 +7,10 @@ export interface Value {
   readonly type?: number
   readonly color?: string
   readonly required?: boolean
+  readonly size?: {
+    width: number
+    height: number
+  }
 }
 
 export type ValueMatrix = Array<Array<Value>>

@@ -50,6 +50,27 @@ describe('value.helper', () => {
     expect(data).toEqual(getTestMatrix())
   })
 
+  it('includes', () => {
+    const data = getTestValueArr()
+    expect(
+      ValueHelper.includes(data, {
+        label: 'ratata',
+        value: 'b',
+      })
+    ).toBe(true)
+    expect(
+      ValueHelper.includes(
+        data,
+        {
+          label: 'ratata',
+          value: 'b',
+        },
+        'label'
+      )
+    ).toBe(false)
+    expect(ValueHelper.includes(data, undefined)).toBe(false)
+  })
+
   it('filterGroupedByArr', async () => {
     const data = getTestGrouped()
     expect(
