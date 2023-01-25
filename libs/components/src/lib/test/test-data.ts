@@ -68,33 +68,48 @@ export function getTestPossibleAutocomplete(): Array<Value> {
     {
       label: 'Choose ...',
       value: '',
+      color: '#00c',
     },
     {
+      label: 'One',
       value: 'One',
+      color: '#0c0',
     },
     {
+      label: 'Two',
       value: 'Two',
     },
     {
+      label: 'Three',
       value: 'Three',
     },
     {
+      label: 'Four',
       value: 'Four',
     },
     {
+      label: 'Five',
       value: 'Five',
     },
     {
+      label: 'Six',
       value: 'Six',
+      color: '#0cc',
     },
     {
+      label: 'Seven',
       value: 'Seven',
+      color: '#00c',
     },
     {
+      label: 'eight',
       value: 'eight',
+      color: '#00c',
     },
     {
+      label: 'nine',
       value: 'nine',
+      color: '#00c',
     },
   ]
 }
