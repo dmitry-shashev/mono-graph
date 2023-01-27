@@ -122,6 +122,20 @@ export async function inputHasValue(
   })
 }
 
+export async function checkboxValueByTestId(
+  testId: string,
+  value: boolean
+): Promise<void> {
+  const elem = screen.getByTestId(testId)
+  await waitFor(() => {
+    if (value) {
+      expect(elem).toBeChecked()
+    } else {
+      expect(elem).not.toBeChecked()
+    }
+  })
+}
+
 export function clickByAriaLabel(
   ariaLabel: string,
   position = 0
