@@ -48,7 +48,7 @@ export const ComplexMultiSelector: FC<Props> = ({
     possible,
     search,
     ValueHelper.labelSelector
-  )
+  ).filter((v) => !!v.value)
   return (
     <div
       className={clsx(styles.wrap, {
@@ -72,6 +72,7 @@ export const ComplexMultiSelector: FC<Props> = ({
             className={`defaultInput ${styles.filterInput}`}
             type="text"
             placeholder="Filter..."
+            aria-label="Filter input"
           />
           {showDetails && (
             <button
@@ -79,6 +80,7 @@ export const ComplexMultiSelector: FC<Props> = ({
               onClick={onDetails}
               className={styles.detailsBtn}
               type="button"
+              aria-label="Details button"
             />
           )}
         </div>
@@ -87,7 +89,7 @@ export const ComplexMultiSelector: FC<Props> = ({
       <div className={styles.contentWrap}>
         {filteredPossible
           .filter((v) => StrHelper.isSubstring(v.label ?? '', search))
-          .map((elem) => (
+          .map((elem, index) => (
             <div
               style={{
                 color: elem.color ?? 'initial',
@@ -105,6 +107,8 @@ export const ComplexMultiSelector: FC<Props> = ({
                 checked={ValueHelper.includes(selected, elem)}
                 onChange={onChangeInner(elem)}
                 type="checkbox"
+                aria-label="Selector checkbox"
+                data-testid={`cms-${index}`}
               />
               <div>{elem.label}</div>
             </div>
