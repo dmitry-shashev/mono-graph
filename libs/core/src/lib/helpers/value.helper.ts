@@ -102,10 +102,10 @@ export abstract class ValueHelper {
     return found
   }
 
-  public static buildCombinedLabel(
+  public static buildCompositeLabel(
     arr: ReadonlyArray<Value | undefined>,
-    field: keyof Value = 'value',
-    delimiter = ' | '
+    field: keyof Value = 'label',
+    delimiter = ', '
   ): string {
     const result: Array<string> = arr
       .map((v) => String(v?.[field] ?? '').trim())
@@ -174,5 +174,19 @@ export abstract class ValueHelper {
 
   public static labelSelector(v: Value): string {
     return v.label ?? ''
+  }
+
+  public static sum(
+    arr: ReadonlyArray<Value>,
+    field: keyof Value = 'value'
+  ): number {
+    let result = 0
+    arr.forEach((v) => {
+      const valueToAdd = Number(v[field])
+      if (!isNaN(valueToAdd)) {
+        result += valueToAdd
+      }
+    })
+    return result
   }
 }
