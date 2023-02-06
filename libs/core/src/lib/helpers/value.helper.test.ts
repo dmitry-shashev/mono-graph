@@ -158,15 +158,15 @@ describe('value.helper', () => {
 
   it('buildCombinedLabel', () => {
     const data = getTestValueArr()
-    expect(ValueHelper.buildCombinedLabel([])).toBe('')
-    expect(ValueHelper.buildCombinedLabel(data)).toBe('a | b | c')
-    expect(ValueHelper.buildCombinedLabel(data, 'label')).toBe(
-      'One | Two | Three'
+    expect(ValueHelper.buildCompositeLabel([])).toBe('')
+    expect(ValueHelper.buildCompositeLabel(data)).toBe('One, Two, Three')
+    expect(ValueHelper.buildCompositeLabel(data, 'value')).toBe('a, b, c')
+    expect(ValueHelper.buildCompositeLabel(data, 'color')).toBe('red, green')
+    expect(ValueHelper.buildCompositeLabel(data, 'color', '@')).toBe(
+      'red@green'
     )
-    expect(ValueHelper.buildCombinedLabel(data, 'color')).toBe('red | green')
-    expect(ValueHelper.buildCombinedLabel(data, 'color', '@')).toBe('red@green')
 
-    expect(ValueHelper.buildCombinedLabel(data, 'type')).toBe('')
+    expect(ValueHelper.buildCompositeLabel(data, 'type')).toBe('')
 
     expect(data).toEqual(getTestValueArr())
   })
@@ -277,5 +277,12 @@ describe('value.helper', () => {
     expect(
       ValueHelper.searchChildInGroupedByPureField('aaa1', data, 'type')
     ).toEqual(undefined)
+  })
+
+  it('sum', () => {
+    const data = getTestSortArr()
+    expect(ValueHelper.sum(data)).toBe(11)
+    expect(ValueHelper.sum(data, 'label')).toBe(0)
+    expect(data).toEqual(getTestSortArr())
   })
 })
