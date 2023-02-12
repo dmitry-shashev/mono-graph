@@ -1,8 +1,9 @@
 {
   "name": "mono-graph",
-  "version": "0.0.115",
+  "version": "0.0.116",
   "license": "MIT",
   "scripts": {
+    "test123": "node -v",
     "prepare": "husky install",
     "cypress-install": "cypress install --force",
     "prettier-format": "prettier --write . && git add --all",
@@ -148,7 +149,8 @@
     "nonGlobalStepDefinitions": true
   },
   "engines": {
-    "node": ">=18.12.1"
+    "node": ">=18.12.1",
+    "pnpm": ">=7.5.2"
   },
   "packageManager": "pnpm@7.5.2"
 }
