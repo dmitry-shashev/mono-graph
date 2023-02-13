@@ -60,4 +60,23 @@ describe('url.helper', () => {
       'https://localhost:8080/login?f=33'
     )
   })
+
+  it('currentLinkWithoutDomain', () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    delete global.window.location
+    global.window = Object.create(window)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    global.window.location = {
+      port: '8080',
+      protocol: 'https:',
+      hostname: 'localhost',
+      search: '?t=123&f=33',
+      origin: 'https://localhost:8080',
+      href: 'https://localhost:8080/login?t=123&f=33',
+    }
+
+    expect(UrlHelper.currentLinkWithoutDomain()).toBe('/login?t=123&f=33')
+  })
 })

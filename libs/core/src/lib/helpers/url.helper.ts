@@ -30,4 +30,8 @@ export abstract class UrlHelper {
 
     return urlParsed.toString()
   }
+
+  public static currentLinkWithoutDomain(): string {
+    return window.location.href.replace(window.location.origin, '')
+  }
 }
