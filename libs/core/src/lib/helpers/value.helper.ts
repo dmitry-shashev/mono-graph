@@ -189,4 +189,9 @@ export abstract class ValueHelper {
     })
     return result
   }
+
+  public static isValidDate(value: string): boolean {
+    const parsed = Date.parse(value)
+    return !isNaN(parsed)
+  }
 }
