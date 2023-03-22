@@ -285,4 +285,11 @@ describe('value.helper', () => {
     expect(ValueHelper.sum(data, 'label')).toBe(0)
     expect(data).toEqual(getTestSortArr())
   })
+
+  it('isValidDate', () => {
+    expect(ValueHelper.isValidDate('12a')).toBe(false)
+    expect(ValueHelper.isValidDate('1679516314397')).toBe(false)
+    expect(ValueHelper.isValidDate('2023-03-22T20:19:32.698Z')).toBe(true)
+    expect(ValueHelper.isValidDate('2023a-03-22T20:19:32.698Z')).toBe(false)
+  })
 })
