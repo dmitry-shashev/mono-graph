@@ -18,14 +18,10 @@ export abstract class PaginationHelper {
   }
 
   public static nextPage(current: Pagination): Pagination {
-    const newOffset = Math.min(
-      current.offset + current.limit,
-      current.total - current.limit
-    )
     return {
       limit: current.limit,
       total: current.total,
-      offset: newOffset,
+      offset: Math.min(current.offset + current.limit, current.total),
     }
   }
 
