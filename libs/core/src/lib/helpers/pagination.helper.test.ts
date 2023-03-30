@@ -37,10 +37,23 @@ describe('pagination.helper', () => {
 
     const testMaxPage = getTestEndPagination()
     const nextMaxPage = PaginationHelper.nextPage(testMaxPage)
-    expect(nextMaxPage).toEqual(testMaxPage)
+    expect(nextMaxPage.offset).toEqual(testMaxPage.total)
 
     expect(testPagination).toEqual(getTestAveragePagination())
     expect(testMaxPage).toEqual(getTestEndPagination())
+
+    const otherNextPage1 = PaginationHelper.nextPage({
+      limit: 10,
+      offset: 0,
+      total: 29,
+    })
+    expect(otherNextPage1.offset).toBe(10)
+    expect(otherNextPage1.limit).toBe(10)
+    expect(otherNextPage1.total).toBe(29)
+    const otherNextPage2 = PaginationHelper.nextPage(otherNextPage1)
+    expect(otherNextPage2.offset).toBe(20)
+    expect(otherNextPage2.limit).toBe(10)
+    expect(otherNextPage2.total).toBe(29)
   })
 
   it('prevPage', () => {
