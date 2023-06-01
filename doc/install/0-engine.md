@@ -18,9 +18,10 @@ Remove `.prettierrc` and add into `package.json`
     "bracketSpacing": true
   },
   "engines": {
-    "node": ">=18.12.1"
+    "node": ">=18.12.1",
+    "pnpm": ">=8.5.1"
   },
-  "packageManager": "pnpm@7.5.2"
+  "packageManager": "pnpm@8.5.1"
 ```
 
 And add in the scripts section

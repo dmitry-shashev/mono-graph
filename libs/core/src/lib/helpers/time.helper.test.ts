@@ -45,4 +45,45 @@ describe('time.helper', () => {
       '11/08/2023'
     )
   })
+
+  it('getCurrentYear', () => {
+    jest.useFakeTimers()
+
+    jest.setSystemTime(new Date('2021-12-31'))
+    expect(TimeHelper.getCurrentYear()).toBe('2021')
+
+    jest.setSystemTime(new Date('2023-06-01'))
+    expect(TimeHelper.getCurrentYear()).toBe('2023')
+
+    jest.useRealTimers()
+  })
+
+  it('getLast5Years', () => {
+    jest.useFakeTimers()
+
+    jest.setSystemTime(new Date('2021-12-31'))
+    expect(TimeHelper.getLast5Years()).toEqual([
+      '2021',
+      '2020',
+      '2019',
+      '2018',
+      '2017',
+    ])
+
+    jest.setSystemTime(new Date('2023-06-01'))
+    expect(TimeHelper.getLast5Years()).toEqual([
+      '2023',
+      '2022',
+      '2021',
+      '2020',
+      '2019',
+    ])
+
+    jest.useRealTimers()
+  })
+
+  it('getMonthNumber', () => {
+    expect(TimeHelper.getMonthNumber('2023-4-12 04:15')).toBe(3)
+    expect(TimeHelper.getMonthNumber('2023-1-09 18:15')).toBe(0)
+  })
 })

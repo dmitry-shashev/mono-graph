@@ -36,4 +36,32 @@ export abstract class TimeHelper {
     result.setDate(result.getDate() + days)
     return TimeHelper.getDateLabel(result)
   }
+
+  public static isValidDate(value: string): boolean {
+    const parsed = Date.parse(value)
+    return !isNaN(parsed)
+  }
+
+  public static getCurrentYear(): string {
+    return new Date().getFullYear().toString()
+  }
+
+  public static getLast5Years(): Array<string> {
+    const currentYear = new Date().getFullYear()
+
+    const result: Array<string> = []
+    for (let i = 0; i < 5; ++i) {
+      result.push(String(currentYear - i))
+    }
+
+    return result
+  }
+
+  public static getMonthNumber(value: string | undefined): number {
+    if (!value) {
+      return -1
+    }
+    const timeParsed = new Date(value)
+    return timeParsed.getMonth()
+  }
 }
