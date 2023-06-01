@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.120",
+  "version": "0.0.121",
   "license": "MIT",
   "scripts": {
     "test123": "node -v",
