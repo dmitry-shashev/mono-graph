@@ -37,7 +37,10 @@ export abstract class TimeHelper {
     return TimeHelper.getDateLabel(result)
   }
 
-  public static isValidDate(value: string): boolean {
+  public static isValidDate(value: string | null | undefined): value is string {
+    if (!value) {
+      return false
+    }
     const parsed = Date.parse(value)
     return !isNaN(parsed)
   }
