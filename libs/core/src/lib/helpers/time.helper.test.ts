@@ -86,4 +86,13 @@ describe('time.helper', () => {
     expect(TimeHelper.getMonthNumber('2023-4-12 04:15')).toBe(3)
     expect(TimeHelper.getMonthNumber('2023-1-09 18:15')).toBe(0)
   })
+
+  it('isValidDate', () => {
+    expect(TimeHelper.isValidDate(null)).toBe(false)
+    expect(TimeHelper.isValidDate(undefined)).toBe(false)
+    expect(TimeHelper.isValidDate('')).toBe(false)
+
+    expect(TimeHelper.isValidDate('123')).toBe(true)
+    expect(TimeHelper.isValidDate('2023-06-27T09:33:17.879Z')).toBe(true)
+  })
 })

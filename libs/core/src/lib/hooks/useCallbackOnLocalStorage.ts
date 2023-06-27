@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { TimeHelper } from '../helpers/time.helper'
 
-type CallbackLocalStorageKey = 'found-pdf-upload' | 'lost-pdf-upload'
+type CallbackLocalStorageKey = 'engine-event.test1' | 'engine-event.test2'
 
 interface UseCallbackOnLocalStorageData {
   keys?: Array<CallbackLocalStorageKey>
@@ -36,9 +36,9 @@ export function useCallbackOnLocalStorage({
       }
     }
 
-    window.document.addEventListener('storage', eventCallback)
+    window.addEventListener('storage', eventCallback)
     return () => {
-      window.document.removeEventListener('storage', eventCallback)
+      window.removeEventListener('storage', eventCallback)
     }
   }, [callback])
 
