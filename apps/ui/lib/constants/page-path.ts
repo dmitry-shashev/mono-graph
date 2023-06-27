@@ -7,6 +7,8 @@ enum PagePath {
   TestTabs = '/test-tabs',
   TestAutocomplete = '/test-autocomplete',
   Gallery = '/gallery',
+  TestPopup = '/test-popup',
+  OpenPopup = '/open-popup',
 }
 
 export default PagePath
