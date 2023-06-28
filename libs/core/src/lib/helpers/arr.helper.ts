@@ -31,4 +31,22 @@ export abstract class ArrHelper {
     }
     return result
   }
+
+  // { a: 1 }, { a: 3 }
+  // will become
+  // [undefined, { a: 1 }, undefined, { a: 3 } ]
+  public static assignByField<T>(
+    field: keyof T,
+    baseArr?: Array<T> | null,
+    offset = 0
+  ): Array<T | undefined> {
+    if (!baseArr || !field) {
+      return []
+    }
+    const result: Array<T | undefined> = []
+    baseArr.forEach((v) => {
+      result[Number(v[field]) - offset] = v
+    })
+    return result
+  }
 }
