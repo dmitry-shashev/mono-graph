@@ -1,4 +1,5 @@
 import { ArrHelper } from './arr.helper'
+import { getTestSortArr } from '../tests/test-data'
 
 interface TestElem {
   id: number
@@ -69,5 +70,35 @@ describe('arr.helper', () => {
     ])
 
     expect(data).toEqual(getData())
+  })
+
+  it('assignByField', () => {
+    expect(ArrHelper.assignByField('123', undefined)).toEqual([])
+    expect(ArrHelper.assignByField('test', null)).toEqual([])
+
+    const data = getTestSortArr()
+
+    expect(ArrHelper.assignByField('value', data)).toEqual([
+      undefined,
+      data[2],
+      undefined,
+      data[0],
+      undefined,
+      undefined,
+      undefined,
+      data[1],
+    ])
+
+    expect(ArrHelper.assignByField('value', data, 1)).toEqual([
+      data[2],
+      undefined,
+      data[0],
+      undefined,
+      undefined,
+      undefined,
+      data[1],
+    ])
+
+    expect(data).toEqual(getTestSortArr())
   })
 })
