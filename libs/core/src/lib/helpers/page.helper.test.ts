@@ -12,4 +12,15 @@ describe('page.helper', () => {
   it('buildIdUrl', () => {
     expect(PageHelper.buildIdUrl('/123', 'aa')).toBe('/123?id=YWE%3D')
   })
+
+  it('buildUrlWithQuery', () => {
+    // 213
+    expect(
+      PageHelper.buildUrlWithQuery('https://test.com', {
+        one: 3,
+        name: 'Tester',
+        rr: 'Good Day',
+      })
+    ).toBe('https://test.com?one=3&name=Tester&rr=Good+Day')
+  })
 })
