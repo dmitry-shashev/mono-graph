@@ -216,4 +216,9 @@ describe('str.helper', () => {
 
     expect(data).toEqual(getData())
   })
+
+  it('capitalize', () => {
+    expect(StrHelper.capitalize('')).toEqual('')
+    expect(StrHelper.capitalize('some')).toEqual('Some')
+  })
 })

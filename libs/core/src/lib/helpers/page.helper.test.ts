@@ -14,7 +14,6 @@ describe('page.helper', () => {
   })
 
   it('buildUrlWithQuery', () => {
-    // 213
     expect(
       PageHelper.buildUrlWithQuery('https://test.com', {
         one: 3,
