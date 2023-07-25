@@ -292,4 +292,16 @@ describe('value.helper', () => {
     expect(ValueHelper.isValidDate('2023-03-22T20:19:32.698Z')).toBe(true)
     expect(ValueHelper.isValidDate('2023a-03-22T20:19:32.698Z')).toBe(false)
   })
+
+  it('sortBy', () => {
+    const data = getTestSortArr()
+
+    expect(ValueHelper.sortBy(data, 'name')).toEqual([
+      data[2],
+      data[0],
+      data[1],
+    ])
+
+    expect(data).toEqual(getTestSortArr())
+  })
 })

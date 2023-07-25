@@ -1,6 +1,6 @@
 {
   "name": "mono-graph",
-  "version": "0.0.127",
+  "version": "0.0.128",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",

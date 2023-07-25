@@ -124,6 +124,17 @@ export abstract class ValueHelper {
     }
   }
 
+  public static sortBy(
+    arr: Array<Value>,
+    key: keyof Value = 'label'
+  ): Array<Value> {
+    const result = [...arr]
+    result.sort((a, b) =>
+      String(a[key] ?? '').localeCompare(String(b[key] ?? ''))
+    )
+    return result
+  }
+
   public static buildSortNumberCompare(
     fieldName: keyof Value = 'label'
   ): (a: Value, b: Value) => number {
