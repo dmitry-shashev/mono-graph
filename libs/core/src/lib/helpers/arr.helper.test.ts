@@ -101,4 +101,14 @@ describe('arr.helper', () => {
 
     expect(data).toEqual(getTestSortArr())
   })
+
+  it('splitArray', () => {
+    expect(ArrHelper.splitArray([])).toEqual([[], []])
+    expect(ArrHelper.splitArray(null)).toEqual([[], []])
+    expect(ArrHelper.splitArray(undefined)).toEqual([[], []])
+    expect(ArrHelper.splitArray([1, 2, 3, 4, 5])).toEqual([
+      [1, 2, 3],
+      [4, 5],
+    ])
+  })
 })

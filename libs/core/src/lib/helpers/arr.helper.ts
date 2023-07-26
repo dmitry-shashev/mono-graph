@@ -49,4 +49,18 @@ export abstract class ArrHelper {
     })
     return result
   }
+
+  public static splitArray<T>(
+    arr: ReadonlyArray<T> | null | undefined
+  ): [Array<T>, Array<T>] {
+    if (!arr?.length) {
+      return [[], []]
+    }
+    const middle = Math.round(arr.length / 2)
+
+    const left = arr.slice(0, middle)
+    const right = arr.slice(left.length, arr.length)
+
+    return [left, right]
+  }
 }
