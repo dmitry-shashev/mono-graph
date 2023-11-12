@@ -102,6 +102,7 @@
             "ExportDeclaration": { "multiline": true }
           }
         ],
+        "cypress/unsafe-to-chain-command": "off",
         "no-console": "error",
         "no-alert": "error",
         "no-debugger": "error",
